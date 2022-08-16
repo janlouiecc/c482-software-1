@@ -1,5 +1,6 @@
 package studentid003952787.c482;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,5 +19,10 @@ public class MainController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void exit() {
+        Platform.exit();
+        System.exit(0);
     }
 }

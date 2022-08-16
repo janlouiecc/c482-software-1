@@ -58,6 +58,6 @@
             <Button layoutX="360.0" layoutY="238.0" mnemonicParsing="false" text="Delete" />
          </children>
       </Pane>
-      <Button layoutX="948.0" layoutY="393.0" mnemonicParsing="false" text="Exit" />
+      <Button layoutX="948.0" layoutY="393.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
    </children>
 </AnchorPane>
