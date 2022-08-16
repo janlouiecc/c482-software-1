@@ -14,7 +14,6 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
         Scene scene = new Scene(root);
-        stage.setTitle("Project");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.sizeToScene();
