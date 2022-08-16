@@ -9,8 +9,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-
-// This is a test comment
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
