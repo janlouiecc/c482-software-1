@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="583.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentid003952787.c482.AddPartController">
    <children>
       <Label layoutX="53.0" layoutY="81.0" text="Add Part">
@@ -32,6 +31,6 @@
       <Label layoutX="87.0" layoutY="144.0" text="ID" />
       <Label layoutX="336.0" layoutY="377.0" text="Min" />
       <Button layoutX="361.0" layoutY="492.0" mnemonicParsing="false" onAction="#save" text="Save" />
-      <Button layoutX="430.0" layoutY="492.0" mnemonicParsing="false" text="Cancel" />
+      <Button layoutX="430.0" layoutY="492.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
    </children>
 </AnchorPane>
