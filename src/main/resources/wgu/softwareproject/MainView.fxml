@@ -10,59 +10,53 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0"
-            prefWidth="1040.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="wgu.softwareproject.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.softwareproject.MainController">
    <Label layoutX="65.0" layoutY="57.0" text="Inventory Management System">
       <font>
-         <Font name="Arial Bold" size="18.0"/>
+         <Font name="Arial Bold" size="18.0" />
       </font>
    </Label>
-   <Pane layoutX="65.0" layoutY="97.0" prefHeight="277.0" prefWidth="450.0"
-         style="-fx-border-style: Solid; -fx-border-width: 2px; -fx-border-radius: 8;">
+   <Pane layoutX="65.0" layoutY="97.0" prefHeight="277.0" prefWidth="450.0" style="-fx-border-style: Solid; -fx-border-width: 2px; -fx-border-radius: 8;">
       <ScrollPane layoutX="15.0" layoutY="48.0" prefHeight="181.0" prefWidth="420.0">
          <TableView fx:id="mainPartsTable" prefHeight="181.0" prefWidth="420.0">
             <columns>
-               <TableColumn fx:id="mainPartIdColumn" prefWidth="77.0" text="Part ID"/>
-               <TableColumn fx:id="mainPartNameColumn" prefWidth="103.0" text="Part Name"/>
-               <TableColumn fx:id="mainPartInventoryColumn" prefWidth="105.0" text="Inventory Level"/>
-               <TableColumn fx:id="mainPartPriceColumn" prefWidth="124.0" text="Price / Cost Per Unit"/>
+               <TableColumn fx:id="mainPartIdColumn" prefWidth="77.0" text="Part ID" />
+               <TableColumn fx:id="mainPartNameColumn" prefWidth="103.0" text="Part Name" />
+               <TableColumn fx:id="mainPartInventoryColumn" prefWidth="105.0" text="Inventory Level" />
+               <TableColumn fx:id="mainPartPriceColumn" prefWidth="124.0" text="Price / Cost Per Unit" />
             </columns>
          </TableView>
       </ScrollPane>
       <Label layoutX="26.0" layoutY="22.0" text="Parts">
          <font>
-            <Font name="System Bold" size="12.0"/>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="279.0" layoutY="18.0" prefHeight="25.0" prefWidth="156.0"
-                 promptText="Search by Part ID or Name"/>
-      <Button layoutX="234.0" layoutY="238.0" mnemonicParsing="false" onAction="#addPart" text="Add"/>
-      <Button layoutX="286.0" layoutY="238.0" mnemonicParsing="false" onAction="#modifyPart" text="Modify"/>
-      <Button layoutX="360.0" layoutY="238.0" mnemonicParsing="false" text="Delete"/>
+      <TextField layoutX="279.0" layoutY="18.0" prefHeight="25.0" prefWidth="156.0" promptText="Search by Part ID or Name" />
+      <Button layoutX="234.0" layoutY="238.0" mnemonicParsing="false" onAction="#addPart" text="Add" />
+      <Button layoutX="286.0" layoutY="238.0" mnemonicParsing="false" onAction="#modifyPart" text="Modify" />
+      <Button layoutX="360.0" layoutY="238.0" mnemonicParsing="false" onAction="#deletePart" text="Delete" />
    </Pane>
-   <Pane layoutX="533.0" layoutY="97.0" prefHeight="277.0" prefWidth="450.0"
-         style="-fx-border-style: Solid; -fx-border-width: 2px; -fx-border-radius: 8px;">
+   <Pane layoutX="533.0" layoutY="97.0" prefHeight="277.0" prefWidth="450.0" style="-fx-border-style: Solid; -fx-border-width: 2px; -fx-border-radius: 8px;">
       <ScrollPane layoutX="15.0" layoutY="48.0" prefHeight="181.0" prefWidth="420.0">
          <TableView fx:id="mainProductsTable" prefHeight="181.0" prefWidth="420.0">
             <columns>
-               <TableColumn fx:id="mainProductIdColumn" prefWidth="77.0" text="Product ID"/>
-               <TableColumn fx:id="mainProductNameColumn" prefWidth="103.0" text="Product Name"/>
-               <TableColumn fx:id="mainProductInventoryColumn" prefWidth="105.0" text="Inventory Level"/>
-               <TableColumn fx:id="mainProductPriceColumn" prefWidth="124.0" text="Price / Cost Per Unit"/>
+               <TableColumn fx:id="mainProductIdColumn" prefWidth="77.0" text="Product ID" />
+               <TableColumn fx:id="mainProductNameColumn" prefWidth="103.0" text="Product Name" />
+               <TableColumn fx:id="mainProductInventoryColumn" prefWidth="105.0" text="Inventory Level" />
+               <TableColumn fx:id="mainProductPriceColumn" prefWidth="124.0" text="Price / Cost Per Unit" />
             </columns>
          </TableView>
       </ScrollPane>
       <Label layoutX="24.0" layoutY="20.0" text="Products">
          <font>
-            <Font name="System Bold" size="12.0"/>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="258.0" layoutY="16.0" prefHeight="25.0" prefWidth="176.0"
-                 promptText="Search by Product ID or Name"/>
-      <Button layoutX="233.0" layoutY="236.0" mnemonicParsing="false" onAction="#addProduct" text="Add"/>
-      <Button layoutX="285.0" layoutY="236.0" mnemonicParsing="false" onAction="#modifyProduct" text="Modify"/>
-      <Button layoutX="359.0" layoutY="236.0" mnemonicParsing="false" text="Delete"/>
+      <TextField layoutX="258.0" layoutY="16.0" prefHeight="25.0" prefWidth="176.0" promptText="Search by Product ID or Name" />
+      <Button layoutX="233.0" layoutY="236.0" mnemonicParsing="false" onAction="#addProduct" text="Add" />
+      <Button layoutX="285.0" layoutY="236.0" mnemonicParsing="false" onAction="#modifyProduct" text="Modify" />
+      <Button layoutX="359.0" layoutY="236.0" mnemonicParsing="false" text="Delete" />
    </Pane>
-   <Button layoutX="948.0" layoutY="393.0" mnemonicParsing="false" onAction="#exit" text="Exit"/>
+   <Button layoutX="948.0" layoutY="393.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
 </AnchorPane>

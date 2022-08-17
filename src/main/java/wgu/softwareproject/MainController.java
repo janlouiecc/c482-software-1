@@ -68,6 +68,16 @@ public class MainController {
         stage.show();
     }
 
+    public void deletePart() {
+        Part selectedPart = mainPartsTable.getSelectionModel().getSelectedItem();
+
+        if (selectedPart == null) {
+            return;
+        }
+
+        Inventory.getAllParts().remove(selectedPart);
+    }
+
     public void addProduct(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddProductView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
