@@ -22,14 +22,29 @@ public class Main extends Application {
     }
 
     private static void addTestData() {
-        Outsourced o = new Outsourced(1, "Mouse", 10.00, 50, 1, 150, "Target");
-        Inventory.addPart(o);
+        Outsourced mouse = new Outsourced(1, "Mouse", 10.00, 50, 1, 150, "Target");
+        Inventory.addPart(mouse);
 
-        InHouse i = new InHouse(2, "Monitor", 100.00, 40, 1, 200, 1000);
-        Inventory.addPart(i);
+        InHouse monitor = new InHouse(2, "Monitor", 100.00, 40, 1, 200, 1000);
+        Inventory.addPart(monitor);
 
-        Product product = new Product(1, "Laptop", 1000.00, 80, 1, 200);
-        Inventory.addProduct(product);
+        Outsourced keyboard = new Outsourced(3, "Keyboard", 15.00, 50, 1, 150, "Walmart");
+        Inventory.addPart(keyboard);
+
+        InHouse processor = new InHouse(4, "Processor", 1000.00, 100, 1, 200, 1000);
+        Inventory.addPart(processor);
+
+        Product gamingLaptop = new Product(1, "Gaming Laptop", 2000.00, 80, 1, 200);
+        Inventory.addProduct(gamingLaptop);
+
+        Product businessLaptop = new Product(2, "Business Laptop", 1000.00, 80, 1, 200);
+        Inventory.addProduct(businessLaptop);
+
+        Product gamingDesktop = new Product(1, "Gaming Desktop", 2000.00, 80, 1, 200);
+        Inventory.addProduct(gamingDesktop);
+
+        Product businessDesktop = new Product(4, "Business Desktop", 1000.00, 80, 1, 200);
+        Inventory.addProduct(businessDesktop);
     }
 
     public static void main(String[] args) {
