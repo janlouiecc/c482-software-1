@@ -40,7 +40,7 @@ public class Main extends Application {
         Product businessLaptop = new Product(2, "Business Laptop", 1000.00, 80, 1, 200);
         Inventory.addProduct(businessLaptop);
 
-        Product gamingDesktop = new Product(1, "Gaming Desktop", 2000.00, 80, 1, 200);
+        Product gamingDesktop = new Product(3, "Gaming Desktop", 2000.00, 80, 1, 200);
         Inventory.addProduct(gamingDesktop);
 
         Product businessDesktop = new Product(4, "Business Desktop", 1000.00, 80, 1, 200);
