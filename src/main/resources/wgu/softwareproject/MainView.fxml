@@ -21,12 +21,12 @@
          <children>
             <ScrollPane layoutX="15.0" layoutY="48.0" prefHeight="181.0" prefWidth="420.0">
                <content>
-                  <TableView prefHeight="181.0" prefWidth="420.0">
+                  <TableView fx:id="mainPartsTable" prefHeight="181.0" prefWidth="420.0">
                      <columns>
-                        <TableColumn prefWidth="77.0" text="Part ID" />
-                        <TableColumn prefWidth="103.0" text="Part Name" />
-                        <TableColumn prefWidth="105.0" text="Inventory Level" />
-                        <TableColumn prefWidth="124.0" text="Price / Cost Per Unit" />
+                        <TableColumn fx:id="mainPartIdColumn" prefWidth="77.0" text="Part ID" />
+                        <TableColumn fx:id="mainPartNameColumn" prefWidth="103.0" text="Part Name" />
+                        <TableColumn fx:id="mainPartInventoryColumn" prefWidth="105.0" text="Inventory Level" />
+                        <TableColumn fx:id="mainPartPriceColumn" prefWidth="124.0" text="Price / Cost Per Unit" />
                      </columns>
                   </TableView>
                </content>
@@ -46,12 +46,12 @@
          <children>
             <ScrollPane layoutX="15.0" layoutY="48.0" prefHeight="181.0" prefWidth="420.0">
                <content>
-                  <TableView prefHeight="181.0" prefWidth="420.0">
+                  <TableView fx:id="mainProductsTable" prefHeight="181.0" prefWidth="420.0">
                      <columns>
-                        <TableColumn prefWidth="77.0" text="Product ID" />
-                        <TableColumn prefWidth="103.0" text="Product Name" />
-                        <TableColumn prefWidth="105.0" text="Inventory Level" />
-                        <TableColumn prefWidth="124.0" text="Price / Cost Per Unit" />
+                        <TableColumn fx:id="mainProductIdColumn" prefWidth="77.0" text="Product ID" />
+                        <TableColumn fx:id="mainProductNameColumn" prefWidth="103.0" text="Product Name" />
+                        <TableColumn fx:id="mainProductInventoryColumn" prefWidth="105.0" text="Inventory Level" />
+                        <TableColumn fx:id="mainProductPriceColumn" prefWidth="124.0" text="Price / Cost Per Unit" />
                      </columns>
                   </TableView>
                </content>

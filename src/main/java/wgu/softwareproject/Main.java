@@ -21,7 +21,19 @@ public class Main extends Application {
         stage.show();
     }
 
+    private static void addTestData() {
+        Outsourced o = new Outsourced(1, "Mouse", 10.00, 50, 1, 150, "Target");
+        Inventory.addPart(o);
+
+        InHouse i = new InHouse(2, "Monitor", 100.00, 40, 1, 200, 1000);
+        Inventory.addPart(i);
+
+        Product product = new Product(1, "Laptop", 1000.00, 80, 1, 200);
+        Inventory.addProduct(product);
+    }
+
     public static void main(String[] args) {
+        addTestData();
         launch(args);
     }
 }
