@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentid003952787.c482.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentid003952787.c482.MainController">
    <children>
       <Label layoutX="65.0" layoutY="57.0" text="Inventory Management System">
          <font>
@@ -19,20 +19,24 @@
       </Label>
       <Pane layoutX="65.0" layoutY="97.0" prefHeight="277.0" prefWidth="450.0" style="-fx-border-style: Solid; -fx-border-width: 2px; -fx-border-radius: 8;">
          <children>
-            <TableView layoutX="15.0" layoutY="48.0" prefHeight="181.0" prefWidth="420.0">
-              <columns>
-                <TableColumn prefWidth="69.0" text="Part ID" />
-                <TableColumn prefWidth="99.0" text="Part Name" />
-                  <TableColumn prefWidth="113.0" text="Inventory Level" />
-                  <TableColumn prefWidth="127.0" text="Price / Cost Per Unit" />
-              </columns>
-            </TableView>
+            <ScrollPane layoutX="15.0" layoutY="48.0" prefHeight="181.0" prefWidth="420.0">
+               <content>
+                  <TableView prefHeight="181.0" prefWidth="420.0">
+                     <columns>
+                        <TableColumn prefWidth="77.0" text="Part ID" />
+                        <TableColumn prefWidth="103.0" text="Part Name" />
+                        <TableColumn prefWidth="105.0" text="Inventory Level" />
+                        <TableColumn prefWidth="124.0" text="Price / Cost Per Unit" />
+                     </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
             <Label layoutX="26.0" layoutY="22.0" text="Parts">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField layoutX="286.0" layoutY="18.0" promptText="Search by Part ID or Name" />
+            <TextField layoutX="279.0" layoutY="18.0" prefHeight="25.0" prefWidth="156.0" promptText="Search by Part ID or Name" />
             <Button layoutX="234.0" layoutY="238.0" mnemonicParsing="false" onAction="#addPart" text="Add" />
             <Button layoutX="286.0" layoutY="238.0" mnemonicParsing="false" onAction="#modifyPart" text="Modify" />
             <Button layoutX="360.0" layoutY="238.0" mnemonicParsing="false" text="Delete" />
@@ -40,14 +44,14 @@
       </Pane>
       <Pane layoutX="533.0" layoutY="97.0" prefHeight="277.0" prefWidth="450.0" style="-fx-border-style: Solid; -fx-border-width: 2px; -fx-border-radius: 8px;">
          <children>
-            <ScrollPane layoutX="15.0" layoutY="48.0" prefHeight="181.0" prefWidth="420.0" vbarPolicy="NEVER">
+            <ScrollPane layoutX="15.0" layoutY="48.0" prefHeight="181.0" prefWidth="420.0">
                <content>
                   <TableView prefHeight="181.0" prefWidth="420.0">
                      <columns>
                         <TableColumn prefWidth="77.0" text="Product ID" />
                         <TableColumn prefWidth="103.0" text="Product Name" />
                         <TableColumn prefWidth="105.0" text="Inventory Level" />
-                        <TableColumn prefWidth="132.0" text="Price / Cost Per Unit" />
+                        <TableColumn prefWidth="124.0" text="Price / Cost Per Unit" />
                      </columns>
                   </TableView>
                </content>
@@ -57,7 +61,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField layoutX="285.0" layoutY="16.0" promptText="Search by Product ID or Name" />
+            <TextField layoutX="258.0" layoutY="16.0" prefHeight="25.0" prefWidth="176.0" promptText="Search by Product ID or Name" />
             <Button layoutX="233.0" layoutY="236.0" mnemonicParsing="false" onAction="#addProduct" text="Add" />
             <Button layoutX="285.0" layoutY="236.0" mnemonicParsing="false" onAction="#modifyProduct" text="Modify" />
             <Button layoutX="359.0" layoutY="236.0" mnemonicParsing="false" text="Delete" />
