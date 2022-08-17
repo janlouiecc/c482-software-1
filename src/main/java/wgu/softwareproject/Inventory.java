@@ -10,15 +10,15 @@ public class Inventory {
     private static final ObservableList<Part> allParts = FXCollections.observableArrayList();
     private static final ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
-    public void addPart(Part newPart) {
+    public static void addPart(Part newPart) {
         allParts.add(newPart);
     }
 
-    public void addProduct(Product newProduct) {
+    public static void addProduct(Product newProduct) {
         allProducts.add(newProduct);
     }
 
-    public Part lookupPart(int partId) {
+    public static Part lookupPart(int partId) {
         for (Part allPart : allParts) {
             if (partId == allPart.getId()) {
                 return allPart;
@@ -27,7 +27,7 @@ public class Inventory {
         return null;
     }
 
-    public Part lookupPart(String partName) {
+    public static Part lookupPart(String partName) {
         for (Part allPart : allParts) {
             if (Objects.equals(partName, allPart.getName())) {
                 return allPart;
@@ -36,7 +36,7 @@ public class Inventory {
         return null;
     }
 
-    public Product lookupProduct(int productId) {
+    public static Product lookupProduct(int productId) {
         for (Product allProduct : allProducts) {
             if (productId == allProduct.getProductId()) {
                 return allProduct;
@@ -45,7 +45,7 @@ public class Inventory {
         return null;
     }
 
-    public Product lookupProduct(String productName) {
+    public static Product lookupProduct(String productName) {
         for (Product allProduct : allProducts) {
             if (Objects.equals(productName, allProduct.getProductName())) {
                 return allProduct;
@@ -54,19 +54,19 @@ public class Inventory {
         return null;
     }
 
-    public void updatePart(int index, Part selectedPart) {
+    public static void updatePart(int index, Part selectedPart) {
 
     }
 
-    public void updateProduct(int index, Part selectedProduct) {
+    public static void updateProduct(int index, Part selectedProduct) {
 
     }
 
-    public boolean deletePart(Part selectedPart) {
+    public static boolean deletePart(Part selectedPart) {
         return true;
     }
 
-    public boolean deleteProduct(Part selectedProduct) {
+    public static boolean deleteProduct(Part selectedProduct) {
         return true;
     }
 
