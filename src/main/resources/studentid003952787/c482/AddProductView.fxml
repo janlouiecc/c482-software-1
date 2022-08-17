@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentid003952787.c482.AddProductController">
    <children>
       <Pane layoutX="30.0" layoutY="23.0" prefHeight="573.0" prefWidth="973.0" style="-fx-border-style: Solid; -fx-border-width: 2px; -fx-border-radius: 8px;">
@@ -59,8 +58,8 @@
             </ScrollPane>
             <Button layoutX="868.0" layoutY="255.0" mnemonicParsing="false" text="Add" />
             <Button layoutX="780.0" layoutY="483.0" mnemonicParsing="false" text="Remove Associated Part" />
-            <Button layoutX="780.0" layoutY="521.0" mnemonicParsing="false" text="Save" />
-            <Button layoutX="861.0" layoutY="521.0" mnemonicParsing="false" text="Cancel" />
+            <Button layoutX="780.0" layoutY="521.0" mnemonicParsing="false" onAction="#save" text="Save" />
+            <Button layoutX="861.0" layoutY="521.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
          </children>
       </Pane>
    </children>
