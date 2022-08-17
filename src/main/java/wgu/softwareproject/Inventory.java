@@ -3,8 +3,6 @@ package wgu.softwareproject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.Objects;
-
 public class Inventory {
 
     private static final ObservableList<Part> allParts = FXCollections.observableArrayList();
@@ -21,7 +19,7 @@ public class Inventory {
     public static Part lookupPart(int partId) {
         ObservableList<Part> allParts = getAllParts();
         for (Part part : allParts) {
-            if (partId == part.getId()) {
+            if (partId == part.getPartId()) {
                 return part;
             }
         }
@@ -33,7 +31,7 @@ public class Inventory {
         ObservableList<Part> allParts = getAllParts();
 
         for (Part part : allParts) {
-            if(part.getName().contains(partialName)) {
+            if(part.getPartName().contains(partialName)) {
                 namedParts.add(part);
             }
         }
