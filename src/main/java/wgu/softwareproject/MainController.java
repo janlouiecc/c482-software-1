@@ -47,10 +47,10 @@ public class MainController {
 
     public void initialize() {
         mainPartsTable.setItems(Inventory.getAllParts());
-        mainPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        mainPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        mainPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
-        mainPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        mainPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
+        mainPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
+        mainPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
+        mainPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
 
         mainProductsTable.setItems(Inventory.getAllProducts());
         mainProductIdColumn.setCellValueFactory(new PropertyValueFactory<>("productId"));

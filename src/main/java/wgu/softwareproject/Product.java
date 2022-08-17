@@ -12,14 +12,16 @@ public class Product {
     private int productStock;
     private int productMin;
     private int productMax;
+    private static int productIdGenerator = 2;
 
-    public Product(int productId, String productName, double productPrice, int productStock, int productMin, int productMax) {
-        setProductId(productId);
+    public Product(String productName, double productPrice, int productStock, int productMin, int productMax) {
+        setProductId(productIdGenerator);
         setProductName(productName);
         setProductPrice(productPrice);
         setProductStock(productStock);
         setProductMin(productMin);
         setProductMax(productMax);
+        productIdGenerator += 2;
     }
 
     public void setProductId(int productId) {

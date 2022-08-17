@@ -37,16 +37,16 @@ public class Main extends Application {
         InHouse tower = new InHouse("Tower Case", 500.00, 100, 1, 200, 1000);
         Inventory.addPart(tower);
 
-        Product gamingLaptop = new Product(1, "Gaming Laptop", 2000.00, 80, 1, 200);
+        Product gamingLaptop = new Product("Gaming Laptop", 2000.00, 80, 1, 200);
         Inventory.addProduct(gamingLaptop);
 
-        Product businessLaptop = new Product(2, "Business Laptop", 1000.00, 80, 1, 200);
+        Product businessLaptop = new Product("Business Laptop", 1000.00, 80, 1, 200);
         Inventory.addProduct(businessLaptop);
 
-        Product gamingDesktop = new Product(3, "Gaming Desktop", 2000.00, 80, 1, 200);
+        Product gamingDesktop = new Product("Gaming Desktop", 2000.00, 80, 1, 200);
         Inventory.addProduct(gamingDesktop);
 
-        Product businessDesktop = new Product(4, "Business Desktop", 1000.00, 80, 1, 200);
+        Product businessDesktop = new Product("Business Desktop", 1000.00, 80, 1, 200);
         Inventory.addProduct(businessDesktop);
     }
 
