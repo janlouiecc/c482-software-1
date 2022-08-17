@@ -1,7 +1,4 @@
-package wgu.softwareproject; /**
-* Supplied class Part.java
- */
-
+package wgu.softwareproject;
 /**
  *
  * @author Place Your Name Here
