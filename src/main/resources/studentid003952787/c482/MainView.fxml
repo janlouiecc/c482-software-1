@@ -59,7 +59,7 @@
             </Label>
             <TextField layoutX="285.0" layoutY="16.0" promptText="Search by Product ID or Name" />
             <Button layoutX="233.0" layoutY="236.0" mnemonicParsing="false" onAction="#addProduct" text="Add" />
-            <Button layoutX="285.0" layoutY="236.0" mnemonicParsing="false" text="Modify" />
+            <Button layoutX="285.0" layoutY="236.0" mnemonicParsing="false" onAction="#modifyProduct" text="Modify" />
             <Button layoutX="359.0" layoutY="236.0" mnemonicParsing="false" text="Delete" />
          </children>
       </Pane>
