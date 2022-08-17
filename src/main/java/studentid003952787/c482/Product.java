@@ -69,4 +69,16 @@ public class Product {
     public int getProductMax() {
         return productMax;
     }
+
+    public void addAssociatedPart(Part part) {
+        associatedParts.add(part);
+    }
+
+    public void deleteAssociatedPart(Part selectedAssociatedPart) {
+        associatedParts.remove(selectedAssociatedPart);
+    }
+
+    public static ObservableList<Part> getAllAssociatedParts() {
+        return associatedParts;
+    }
 }
