@@ -1,6 +1,7 @@
 package wgu.softwareproject;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -72,6 +73,11 @@ public class MainController {
         Part selectedPart = mainPartsTable.getSelectionModel().getSelectedItem();
 
         if (selectedPart == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("No item selected.");
+            alert.setContentText("Please select an item to delete.");
+            alert.showAndWait();
             return;
         }
 
