@@ -1,4 +1,4 @@
-package studentid003952787.c482;
+package wgu.softwareproject;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

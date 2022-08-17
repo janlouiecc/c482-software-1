@@ -1,8 +1,8 @@
-module c482.studentid003952787.c482 {
+module wgu.softwareproject {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens studentid003952787.c482 to javafx.fxml;
-    exports studentid003952787.c482;
+    opens wgu.softwareproject to javafx.fxml;
+    exports wgu.softwareproject;
 }

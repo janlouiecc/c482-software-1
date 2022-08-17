@@ -1,4 +1,4 @@
-package studentid003952787.c482; /**
+package wgu.softwareproject; /**
 * Supplied class Part.java
  */
 

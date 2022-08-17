@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>c482.studentid003952787.c482/studentid003952787.c482.Main
+                            <mainClass>c482.studentid003952787.c482/wgu.softwareproject.Main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
