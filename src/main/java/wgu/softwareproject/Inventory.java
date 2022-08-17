@@ -70,11 +70,11 @@ public class Inventory {
 //        return true;
 //    }
 //
-//    public static ObservableList<Part> getAllParts() {
-//        return allParts;
-//    }
-//
-//    public static ObservableList<Product> getAllProducts() {
-//        return allProducts;
-//    }
+    public static ObservableList<Part> getAllParts() {
+        return allParts;
+    }
+
+    public static ObservableList<Product> getAllProducts() {
+        return allProducts;
+    }
 }
