@@ -42,6 +42,8 @@ public class MainController {
     public TableColumn<Product, Double> mainProductPriceColumn;
     @FXML
     public TextField partSearchField;
+    @FXML
+    public TextField productSearchField;
 
     public void initialize() {
         mainPartsTable.setItems(Inventory.getAllParts());
@@ -88,9 +90,20 @@ public class MainController {
         Inventory.getAllParts().remove(selectedPart);
     }
 
-    public void getPartSearchResults(ActionEvent actionEvent) {
+    public void getPartSearchResults() {
         String search = partSearchField.getText();
         ObservableList<Part> parts = Inventory.lookupPart(search);
+
+        if (parts.size() == 0) {
+            try {
+                int partId = Integer.parseInt(search);
+                Part part = Inventory.lookupPart(partId);
+                if (part != null) {
+                    parts.add(part);
+                }
+            } catch (NumberFormatException ignored) {}
+        }
+
         mainPartsTable.setItems(parts);
     }
 
@@ -110,6 +123,23 @@ public class MainController {
         stage.show();
     }
 
+    public void getProductSearchResults() {
+        String search = productSearchField.getText();
+        ObservableList<Product> products = Inventory.lookupProduct(search);
+
+        if (products.size() == 0) {
+            try {
+                int productId = Integer.parseInt(search);
+                Product product = Inventory.lookupProduct(productId);
+                if (product != null) {
+                    products.add(product);
+                }
+            } catch (NumberFormatException ignored) {}
+        }
+
+        mainProductsTable.setItems(products);
+    }
+    
     public void exit() {
         Platform.exit();
         System.exit(0);

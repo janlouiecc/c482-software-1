@@ -19,6 +19,7 @@ public class Inventory {
     }
 
     public static Part lookupPart(int partId) {
+        ObservableList<Part> allParts = getAllParts();
         for (Part part : allParts) {
             if (partId == part.getId()) {
                 return part;
@@ -41,21 +42,26 @@ public class Inventory {
     }
 
     public static Product lookupProduct(int productId) {
-        for (Product allProduct : allProducts) {
-            if (productId == allProduct.getProductId()) {
-                return allProduct;
+        ObservableList<Product> allProducts = getAllProducts();
+        for (Product product : allProducts) {
+            if (productId == product.getProductId()) {
+                return product;
             }
         }
         return null;
     }
 
-    public static Product lookupProduct(String productName) {
-        for (Product allProduct : allProducts) {
-            if (Objects.equals(productName, allProduct.getProductName())) {
-                return allProduct;
+    public static ObservableList<Product> lookupProduct(String partialName) {
+        ObservableList<Product> namedProducts = FXCollections.observableArrayList();
+        ObservableList<Product> allProducts = getAllProducts();
+
+        for (Product Product : allProducts) {
+            if(Product.getProductName().contains(partialName)) {
+                namedProducts.add(Product);
             }
         }
-        return null;
+
+        return namedProducts;
     }
 
 //    public static void updatePart(int index, Part selectedPart) {
