@@ -32,7 +32,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="279.0" layoutY="18.0" prefHeight="25.0" prefWidth="156.0" promptText="Search by Part ID or Name" />
+      <TextField fx:id="partSearchField" layoutX="279.0" layoutY="18.0" onAction="#getPartSearchResults" prefHeight="25.0" prefWidth="156.0" promptText="Search by Part ID or Name" />
       <Button layoutX="234.0" layoutY="238.0" mnemonicParsing="false" onAction="#addPart" text="Add" />
       <Button layoutX="286.0" layoutY="238.0" mnemonicParsing="false" onAction="#modifyPart" text="Modify" />
       <Button layoutX="360.0" layoutY="238.0" mnemonicParsing="false" onAction="#deletePart" text="Delete" />

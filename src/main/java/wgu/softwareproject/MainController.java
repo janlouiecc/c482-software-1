@@ -1,9 +1,11 @@
 package wgu.softwareproject;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -38,6 +40,8 @@ public class MainController {
     public TableColumn<Product, Integer> mainProductInventoryColumn;
     @FXML
     public TableColumn<Product, Double> mainProductPriceColumn;
+    @FXML
+    public TextField partSearchField;
 
     public void initialize() {
         mainPartsTable.setItems(Inventory.getAllParts());
@@ -82,6 +86,12 @@ public class MainController {
         }
 
         Inventory.getAllParts().remove(selectedPart);
+    }
+
+    public void getPartSearchResults(ActionEvent actionEvent) {
+        String search = partSearchField.getText();
+        ObservableList<Part> parts = Inventory.lookupPart(search);
+        mainPartsTable.setItems(parts);
     }
 
     public void addProduct(ActionEvent event) throws IOException {

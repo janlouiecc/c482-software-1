@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 
 public class Product {
 
-    private static final ObservableList<Part> associatedParts = FXCollections.observableArrayList();
+    private final ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private int productId;
     private String productName;
     private double productPrice;
@@ -78,7 +78,7 @@ public class Product {
         associatedParts.remove(selectedAssociatedPart);
     }
 
-    public static ObservableList<Part> getAllAssociatedParts() {
+    public ObservableList<Part> getAllAssociatedParts() {
         return associatedParts;
     }
 }

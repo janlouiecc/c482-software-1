@@ -27,13 +27,17 @@ public class Inventory {
         return null;
     }
 
-    public static Part lookupPart(String partName) {
-        for (Part allPart : allParts) {
-            if (Objects.equals(partName, allPart.getName())) {
-                return allPart;
+    public static ObservableList<Part> lookupPart(String partialName) {
+        ObservableList<Part> namedParts = FXCollections.observableArrayList();
+        ObservableList<Part> allParts = getAllParts();
+
+        for (Part part : allParts) {
+            if(part.getName().contains(partialName)) {
+                namedParts.add(part);
             }
         }
-        return null;
+
+        return namedParts;
     }
 
     public static Product lookupProduct(int productId) {
