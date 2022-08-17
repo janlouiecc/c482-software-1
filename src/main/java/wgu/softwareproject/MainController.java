@@ -27,10 +27,15 @@ public class MainController {
     public TableColumn<Part, Integer> mainPartInventoryColumn;
     @FXML
     public TableColumn<Part, Double> mainPartPriceColumn;
+    @FXML
     public TableView<Product> mainProductsTable;
+    @FXML
     public TableColumn<Product, Integer> mainProductIdColumn;
+    @FXML
     public TableColumn<Product, String> mainProductNameColumn;
+    @FXML
     public TableColumn<Product, Integer> mainProductInventoryColumn;
+    @FXML
     public TableColumn<Product, Double> mainProductPriceColumn;
 
     public void initialize() {
