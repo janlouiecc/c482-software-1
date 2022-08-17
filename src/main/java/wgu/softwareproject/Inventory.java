@@ -54,27 +54,27 @@ public class Inventory {
         return null;
     }
 
-    public static void updatePart(int index, Part selectedPart) {
-
-    }
-
-    public static void updateProduct(int index, Part selectedProduct) {
-
-    }
-
-    public static boolean deletePart(Part selectedPart) {
-        return true;
-    }
-
-    public static boolean deleteProduct(Part selectedProduct) {
-        return true;
-    }
-
-    public static ObservableList<Part> getAllParts() {
-        return allParts;
-    }
-
-    public static ObservableList<Product> getAllProducts() {
-        return allProducts;
-    }
+//    public static void updatePart(int index, Part selectedPart) {
+//
+//    }
+//
+//    public static void updateProduct(int index, Part selectedProduct) {
+//
+//    }
+//
+//    public static boolean deletePart(Part selectedPart) {
+//        return true;
+//    }
+//
+//    public static boolean deleteProduct(Part selectedProduct) {
+//        return true;
+//    }
+//
+//    public static ObservableList<Part> getAllParts() {
+//        return allParts;
+//    }
+//
+//    public static ObservableList<Product> getAllProducts() {
+//        return allProducts;
+//    }
 }
