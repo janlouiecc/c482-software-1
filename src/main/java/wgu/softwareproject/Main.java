@@ -42,9 +42,12 @@ public class Main extends Application {
 
         Product businessLaptop = new Product("Business Laptop", 1000.00, 80, 1, 200);
         Inventory.addProduct(businessLaptop);
+        businessLaptop.addAssociatedPart(processor);
 
         Product gamingDesktop = new Product("Gaming Desktop", 2000.00, 80, 1, 200);
         Inventory.addProduct(gamingDesktop);
+        gamingDesktop.addAssociatedPart(monitor);
+        gamingDesktop.addAssociatedPart(mouse);
 
         Product businessDesktop = new Product("Business Desktop", 1000.00, 80, 1, 200);
         Inventory.addProduct(businessDesktop);
@@ -52,12 +55,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         addTestData();
-
-        for (Part part : Inventory.getAllParts()) {
-            System.out.println(part.getPartName());
-        }
-        System.out.println();
-
         launch(args);
     }
 }
