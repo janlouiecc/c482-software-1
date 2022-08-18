@@ -39,6 +39,18 @@ public class ModifyProductController implements Initializable {
     private TableColumn<Part, Double> modifyProductPartPriceColumn;
     @FXML
     private TableColumn<Part, Integer> modifyProductPartInventoryColumn;
+    @FXML
+    private TextField productNameTextField;
+    @FXML
+    private TextField productInventoryTextField;
+    @FXML
+    private TextField productPriceTextField;
+    @FXML
+    private TextField productMaxTextField;
+    @FXML
+    private TextField productMinTextField;
+
+    private static Product productToModify = null;
 
     public void save(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
@@ -99,6 +111,9 @@ public class ModifyProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        productToModify = MainController.getProductToModify();
+        ObservableList<Part> associatedParts = productToModify.getAllAssociatedParts();
+
         modifyProductPartsTable.setItems(Inventory.getAllParts());
         modifyProductPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
         modifyProductPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
@@ -109,5 +124,16 @@ public class ModifyProductController implements Initializable {
         modifyPartsAssociatedPartsNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
         modifyPartsAssociatedPartsInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
         modifyPartsAssociatedPartsPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
+
+        productNameTextField.setText(productToModify.getProductName());
+        productInventoryTextField.setText(String.valueOf(productToModify.getProductStock()));
+        productPriceTextField.setText(String.valueOf(productToModify.getProductPrice()));
+        productMinTextField.setText(String.valueOf(productToModify.getProductMin()));
+        productMaxTextField.setText(String.valueOf(productToModify.getProductMax()));
+
+        for (Part part : associatedParts) {
+            modifyProductPartsTable.getItems().remove(part);
+            modifyPartsAssociatedPartsTable.getItems().add(part);
+        }
     }
 }

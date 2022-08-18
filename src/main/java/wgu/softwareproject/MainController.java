@@ -47,6 +47,7 @@ public class MainController implements Initializable {
     private TextField productSearchField;
 
     private static Part partToModify = null;
+    private static Product productToModify = null;
 
     public void addPart(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddPartView.fxml")));
@@ -134,6 +135,18 @@ public class MainController implements Initializable {
     }
 
     public void modifyProduct(ActionEvent event) throws IOException {
+        Product selectedProduct = mainProductsTable.getSelectionModel().getSelectedItem();
+
+        if (selectedProduct == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("No item selected.");
+            alert.setContentText("Please select an item to modify.");
+            alert.showAndWait();
+            return;
+        }
+        productToModify = selectedProduct;
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ModifyProductView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -166,6 +179,9 @@ public class MainController implements Initializable {
 
     public static Part getPartToModify() {
         return partToModify;
+    }
+    public static Product getProductToModify() {
+        return productToModify;
     }
 
     @Override
