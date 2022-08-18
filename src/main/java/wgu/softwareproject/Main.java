@@ -10,10 +10,17 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * This is the Main class that extends the Application abstract class.
+ * This is the Main class.
+ * The Main class extends the Application abstract class for the Inventory Management System.
+ * @author janlouiecc
  */
 public class Main extends Application {
 
+    /**
+     * Starts our JavaFX application.
+     * This method is the entry point for the JavaFX application.
+     * @param stage This parameter is the top level JavaFX container that contains our scenes.
+     */
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
@@ -58,6 +65,11 @@ public class Main extends Application {
         Inventory.addProduct(businessDesktop);
     }
 
+    /**
+     * This is the main method.
+     * This method is the entry point for our program that launches the JavaFX application.
+     * @param args This parameter is the arguments for our entry point into the program.
+     */
     public static void main(String[] args) {
         addTestData();
         launch(args);

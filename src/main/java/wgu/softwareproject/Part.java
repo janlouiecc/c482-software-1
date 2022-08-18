@@ -1,8 +1,10 @@
 package wgu.softwareproject;
+
 /**
- *
- * @author Place Your Name Here
+ * This is the Part abstract class that is extended when In-house or Outsourced parts are initialized.
+ * @author janlouiecc
  */
+
 public abstract class Part {
     private int partId;
     private String partName;
