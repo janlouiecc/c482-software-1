@@ -56,15 +56,37 @@ public class ModifyProductController implements Initializable {
     public void save(ActionEvent event) throws IOException {
 
         try {
-            productToModify.setProductName(productNameTextField.getText());
-            productToModify.setProductPrice(Double.parseDouble(productPriceTextField.getText()));
-            productToModify.setProductStock(Integer.parseInt(productInventoryTextField.getText()));
-            productToModify.setProductMin(Integer.parseInt(productMinTextField.getText()));
-            productToModify.setProductMax(Integer.parseInt(productMaxTextField.getText()));
+            if (Integer.parseInt(productMinTextField.getText()) > Integer.parseInt(productMaxTextField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("Cannot modify product.");
+                alert.setContentText("Please ensure that the minimum value is less than the maximum");
+                alert.showAndWait();
+                productMinTextField.clear();
+                productMaxTextField.clear();
+                return;
+            } else if (!(Integer.parseInt(productMinTextField.getText()) <  Integer.parseInt(productInventoryTextField.getText())) ||
+                    !(Integer.parseInt(productInventoryTextField.getText()) < Integer.parseInt(productMaxTextField.getText()))) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("Cannot modify product.");
+                alert.setContentText("Please ensure that the inventory amount is sufficient.");
+                alert.showAndWait();
+                productInventoryTextField.clear();
+                productMinTextField.clear();
+                productMaxTextField.clear();
+                return;
+            } else {
+                productToModify.setProductName(productNameTextField.getText());
+                productToModify.setProductPrice(Double.parseDouble(productPriceTextField.getText()));
+                productToModify.setProductStock(Integer.parseInt(productInventoryTextField.getText()));
+                productToModify.setProductMin(Integer.parseInt(productMinTextField.getText()));
+                productToModify.setProductMax(Integer.parseInt(productMaxTextField.getText()));
+            }
         } catch (NumberFormatException ignore) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("ERROR");
-            alert.setHeaderText("Cannot modify part.");
+            alert.setHeaderText("Cannot modify product.");
             alert.setContentText("Please ensure that the information is correct.");
             alert.showAndWait();
             productNameTextField.setText(productToModify.getProductName());

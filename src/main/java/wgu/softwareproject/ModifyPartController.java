@@ -43,7 +43,7 @@ public class ModifyPartController implements Initializable {
             if (Integer.parseInt(partMinTextField.getText()) > Integer.parseInt(partMaxTextField.getText())) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("ERROR");
-                alert.setHeaderText("Cannot add part.");
+                alert.setHeaderText("Cannot modify part.");
                 alert.setContentText("Please ensure that the minimum value is less than the maximum");
                 alert.showAndWait();
                 partMinTextField.setText(String.valueOf(partToModify.getPartMin()));
@@ -53,7 +53,7 @@ public class ModifyPartController implements Initializable {
                     !(Integer.parseInt(partInventoryTextField.getText()) < Integer.parseInt(partMaxTextField.getText()))) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("ERROR");
-                alert.setHeaderText("Cannot add part.");
+                alert.setHeaderText("Cannot modify part.");
                 alert.setContentText("Please ensure that the inventory amount is sufficient.");
                 alert.showAndWait();
                 partInventoryTextField.setText(String.valueOf(partToModify.getPartStock()));
