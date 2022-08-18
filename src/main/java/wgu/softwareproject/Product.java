@@ -12,7 +12,6 @@ public class Product {
     private int productStock;
     private int productMin;
     private int productMax;
-    private int associatedPartsCount;
     private static int productIdGenerator = 2;
 
     public Product(String productName, double productPrice, int productStock, int productMin, int productMax) {
@@ -22,7 +21,6 @@ public class Product {
         setProductStock(productStock);
         setProductMin(productMin);
         setProductMax(productMax);
-        setAssociatedPartsCount(0);
         productIdGenerator += 2;
     }
 
@@ -76,7 +74,6 @@ public class Product {
 
     public void addAssociatedPart(Part part) {
         associatedParts.add(part);
-        associatedPartsCount++;
     }
 
     public void deleteAssociatedPart(Part selectedAssociatedPart) {
@@ -85,13 +82,5 @@ public class Product {
 
     public ObservableList<Part> getAllAssociatedParts() {
         return associatedParts;
-    }
-
-    public int getAssociatedPartsCount() {
-        return associatedPartsCount;
-    }
-
-    public void setAssociatedPartsCount(int associatedPartsCount) {
-        this.associatedPartsCount = associatedPartsCount;
     }
 }

@@ -36,7 +36,7 @@ public class ModifyPartController implements Initializable {
     @FXML
     private RadioButton inHousePart, outsourcedPart;
 
-    private static Part partToModify = null;
+    private Part partToModify;
 
     public void save(ActionEvent event) throws IOException {
         try {

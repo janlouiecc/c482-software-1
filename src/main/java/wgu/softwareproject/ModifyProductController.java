@@ -51,7 +51,7 @@ public class ModifyProductController implements Initializable {
     @FXML
     private TextField productMinTextField;
 
-    private static Product productToModify = null;
+    private Product productToModify;
 
     public void save(ActionEvent event) throws IOException {
         try {
@@ -72,6 +72,12 @@ public class ModifyProductController implements Initializable {
             productMinTextField.setText(String.valueOf(productToModify.getProductMin()));
             productMaxTextField.setText(String.valueOf(productToModify.getProductMax()));
             return;
+        }
+
+        if (modifyPartsAssociatedPartsTable.getItems().size() > 0) {
+            for (Part part : modifyPartsAssociatedPartsTable.getItems()) {
+                productToModify.addAssociatedPart(part);
+            }
         }
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
@@ -128,6 +134,7 @@ public class ModifyProductController implements Initializable {
 
         modifyPartsAssociatedPartsTable.getItems().remove(selectedPart);
         modifyProductPartsTable.getItems().add(selectedPart);
+        productToModify.deleteAssociatedPart(selectedPart);
     }
 
     @Override
