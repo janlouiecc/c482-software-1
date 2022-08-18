@@ -11,6 +11,7 @@ public abstract class Part {
     private int partMin;
     private int partMax;
     private static int partIdGenerator = 1;
+
     public Part(String partName, double partPrice, int partStock, int partMin, int partMax) {
         setPartId(partIdGenerator);
         setPartName(partName);

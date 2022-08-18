@@ -59,14 +59,36 @@ public class AddProductController implements Initializable {
         Product product;
 
         try {
-            product = new Product(
-                    productNameTextField.getText(),
-                    Double.parseDouble(productPriceTextField.getText()),
-                    Integer.parseInt(productInventoryTextField.getText()),
-                    Integer.parseInt(productMinTextField.getText()),
-                    Integer.parseInt(productMaxTextField.getText())
-            );
-            Inventory.addProduct(product);
+            if (Integer.parseInt(productMinTextField.getText()) > Integer.parseInt(productMaxTextField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("Cannot add product.");
+                alert.setContentText("Please ensure that the minimum value is less than the maximum");
+                alert.showAndWait();
+                productMinTextField.clear();
+                productMaxTextField.clear();
+                return;
+            } else if (!(Integer.parseInt(productMinTextField.getText()) <  Integer.parseInt(productInventoryTextField.getText())) ||
+                    !(Integer.parseInt(productInventoryTextField.getText()) < Integer.parseInt(productMaxTextField.getText()))) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("Cannot add product.");
+                alert.setContentText("Please ensure that the inventory amount is sufficient.");
+                alert.showAndWait();
+                productInventoryTextField.clear();
+                productMinTextField.clear();
+                productMaxTextField.clear();
+                return;
+            } else {
+                product = new Product(
+                        productNameTextField.getText(),
+                        Double.parseDouble(productPriceTextField.getText()),
+                        Integer.parseInt(productInventoryTextField.getText()),
+                        Integer.parseInt(productMinTextField.getText()),
+                        Integer.parseInt(productMaxTextField.getText())
+                );
+                Inventory.addProduct(product);
+            }
         } catch (NumberFormatException ignore) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("ERROR");
