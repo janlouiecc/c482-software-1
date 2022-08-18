@@ -3,10 +3,7 @@ package wgu.softwareproject;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -19,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -86,14 +84,21 @@ public class MainController implements Initializable {
 
         if (selectedPart == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("ERROR");
+            alert.setTitle("Error");
             alert.setHeaderText("No item selected.");
             alert.setContentText("Please select an item to delete.");
             alert.showAndWait();
             return;
         }
 
-        Inventory.getAllParts().remove(selectedPart);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete?");
+        alert.setHeaderText("Deleting " + selectedPart.getPartName());
+        alert.setContentText("Are you sure you want to delete this selection?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            Inventory.getAllParts().remove(selectedPart);
+        }
     }
 
     public void getPartSearchResults() {
