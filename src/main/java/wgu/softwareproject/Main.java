@@ -12,7 +12,6 @@ import java.util.Objects;
 /**
  * This is the Main class.
  * The Main class extends the Application abstract class for the Inventory Management System.
- * @author janlouiecc
  */
 public class Main extends Application {
 

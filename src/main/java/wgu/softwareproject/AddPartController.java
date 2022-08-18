@@ -12,6 +12,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * This is the Add Part Controller class.
+ * This class controls our Add Part form and contains the methods for the functionality of adding parts to the inventory.
+ */
 public class AddPartController {
 
     @FXML
@@ -33,6 +37,12 @@ public class AddPartController {
     @FXML
     private RadioButton inHousePart, outsourcedPart;
 
+    /**
+     * Adds a new part.
+     * This method saves the inputted data and adds a part to the inventory.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void save(ActionEvent event) throws IOException {
         if (partTypeLabel.getText().equals("Machine ID")) {
             try {
@@ -136,6 +146,12 @@ public class AddPartController {
         stage.show();
     }
 
+    /**
+     * Cancels adding a new part.
+     * This method cancels the option to add a new part to the inventory.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void cancel(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -145,6 +161,10 @@ public class AddPartController {
         stage.show();
     }
 
+    /**
+     * Gets the type of part.
+     * This method obtains the information of which radio buttons are selected (In-House or Outsourced) to know what type of information needs to be associated with the new part.
+     */
     public void getTypeOfPart() {
         if (inHousePart.isSelected()) {
             partTypeLabel.setText("Machine ID");
