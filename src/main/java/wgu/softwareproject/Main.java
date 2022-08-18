@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * This is the Main class that extends the Application abstract class.
+ */
 public class Main extends Application {
 
     @Override
@@ -39,6 +42,7 @@ public class Main extends Application {
 
         Product gamingLaptop = new Product("Gaming Laptop", 2000.00, 80, 1, 200);
         Inventory.addProduct(gamingLaptop);
+        gamingLaptop.addAssociatedPart(keyboard);
 
         Product businessLaptop = new Product("Business Laptop", 1000.00, 80, 1, 200);
         Inventory.addProduct(businessLaptop);
@@ -48,6 +52,7 @@ public class Main extends Application {
         Inventory.addProduct(gamingDesktop);
         gamingDesktop.addAssociatedPart(monitor);
         gamingDesktop.addAssociatedPart(mouse);
+        gamingDesktop.addAssociatedPart(tower);
 
         Product businessDesktop = new Product("Business Desktop", 1000.00, 80, 1, 200);
         Inventory.addProduct(businessDesktop);
@@ -57,4 +62,5 @@ public class Main extends Application {
         addTestData();
         launch(args);
     }
+
 }
