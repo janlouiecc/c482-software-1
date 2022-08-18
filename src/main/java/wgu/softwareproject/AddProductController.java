@@ -18,16 +18,19 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * This is the Add Product controller class.
+ */
 public class AddProductController implements Initializable {
 
     @FXML
-    public TableColumn<Part, Integer> addPartsAssociatedPartsIdColumn;
+    private TableColumn<Part, Integer> addPartsAssociatedPartsIdColumn;
     @FXML
-    public TableColumn<Part, String> addPartsAssociatedPartsNameColumn;
+    private TableColumn<Part, String> addPartsAssociatedPartsNameColumn;
     @FXML
-    public TableColumn<Part, Integer> addPartsAssociatedPartsInventoryColumn;
+    private TableColumn<Part, Integer> addPartsAssociatedPartsInventoryColumn;
     @FXML
-    public TableColumn<Part, Double> addPartsAssociatedPartsPriceColumn;
+    private TableColumn<Part, Double> addPartsAssociatedPartsPriceColumn;
     @FXML
     private TextField partSearchField;
     @FXML
@@ -53,6 +56,12 @@ public class AddProductController implements Initializable {
     @FXML
     private TextField productMinTextField;
 
+    /**
+     * Adds a new product
+     * This method saves the inputted data and adds a product to the inventory.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void save(ActionEvent event) throws IOException {
         Product product;
 
@@ -113,6 +122,12 @@ public class AddProductController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Cancels adding a new product.
+     * This method cancels the option to add a new product to the inventory.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void cancel(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -122,6 +137,10 @@ public class AddProductController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Gets part search results.
+     * This method is associated with the search text field in the parts table.
+     */
     public void getPartSearchResults() {
         String search = partSearchField.getText();
         ObservableList<Part> parts = Inventory.lookupPart(search);
@@ -139,6 +158,10 @@ public class AddProductController implements Initializable {
         addProductPartsTable.setItems(parts);
     }
 
+    /**
+     * Add associated part button.
+     * This method is associated with the Add button and adds the parts selected to the product's information.
+     */
     public void addAssociatedPartButton() {
         Part selectedPart = addProductPartsTable.getSelectionModel().getSelectedItem();
 
@@ -149,6 +172,10 @@ public class AddProductController implements Initializable {
         addPartsAssociatedPartsTable.getItems().add(selectedPart);
     }
 
+    /**
+     * Remove associated part button.
+     * This method is associated with the Remove Associated Parts button and removes the parts selected from the product's information.
+     */
     public void removeAssociatedPartButton() {
         Part selectedPart = addPartsAssociatedPartsTable.getSelectionModel().getSelectedItem();
 
@@ -166,6 +193,12 @@ public class AddProductController implements Initializable {
         }
     }
 
+    /**
+     * Initializes what is shown in the add product form.
+     * This method overrides the initialize method in the Initializable interface and links the table view data with the inventory data for presentation.
+     * @param url the URL
+     * @param resourceBundle the Resource Bundle
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addProductPartsTable.setItems(Inventory.getAllParts());
@@ -188,4 +221,5 @@ public class AddProductController implements Initializable {
         addProductPartsTable.sort();
         addPartsAssociatedPartsTable.sort();
     }
+
 }
