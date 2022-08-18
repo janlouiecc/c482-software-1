@@ -22,31 +22,31 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     @FXML
-    public TableView<Part> mainPartsTable;
+    private TableView<Part> mainPartsTable;
     @FXML
-    public TableColumn<Part, Integer> mainPartIdColumn;
+    private TableColumn<Part, Integer> mainPartIdColumn;
     @FXML
-    public TableColumn<Part, String> mainPartNameColumn;
+    private TableColumn<Part, String> mainPartNameColumn;
     @FXML
-    public TableColumn<Part, Integer> mainPartInventoryColumn;
+    private TableColumn<Part, Integer> mainPartInventoryColumn;
     @FXML
-    public TableColumn<Part, Double> mainPartPriceColumn;
+    private TableColumn<Part, Double> mainPartPriceColumn;
     @FXML
-    public TableView<Product> mainProductsTable;
+    private TableView<Product> mainProductsTable;
     @FXML
-    public TableColumn<Product, Integer> mainProductIdColumn;
+    private TableColumn<Product, Integer> mainProductIdColumn;
     @FXML
-    public TableColumn<Product, String> mainProductNameColumn;
+    private TableColumn<Product, String> mainProductNameColumn;
     @FXML
-    public TableColumn<Product, Integer> mainProductInventoryColumn;
+    private TableColumn<Product, Integer> mainProductInventoryColumn;
     @FXML
-    public TableColumn<Product, Double> mainProductPriceColumn;
+    private TableColumn<Product, Double> mainProductPriceColumn;
     @FXML
-    public TextField partSearchField;
+    private TextField partSearchField;
     @FXML
-    public TextField productSearchField;
+    private TextField productSearchField;
 
-    public static Part partToModify = null;
+    private static Part partToModify = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
