@@ -48,21 +48,6 @@ public class MainController implements Initializable {
 
     private static Part partToModify = null;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        mainPartsTable.setItems(Inventory.getAllParts());
-        mainPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
-        mainPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
-        mainPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
-        mainPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
-
-        mainProductsTable.setItems(Inventory.getAllProducts());
-        mainProductIdColumn.setCellValueFactory(new PropertyValueFactory<>("productId"));
-        mainProductNameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
-        mainProductInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("productStock"));
-        mainProductPriceColumn.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
-    }
-
     public void addPart(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddPartView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -182,5 +167,20 @@ public class MainController implements Initializable {
 
     public static Part getPartToModify() {
         return partToModify;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        mainPartsTable.setItems(Inventory.getAllParts());
+        mainPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
+        mainPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
+        mainPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
+        mainPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
+
+        mainProductsTable.setItems(Inventory.getAllProducts());
+        mainProductIdColumn.setCellValueFactory(new PropertyValueFactory<>("productId"));
+        mainProductNameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        mainProductInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("productStock"));
+        mainProductPriceColumn.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
     }
 }
