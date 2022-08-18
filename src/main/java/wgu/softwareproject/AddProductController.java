@@ -125,6 +125,17 @@ public class AddProductController implements Initializable {
         addPartsAssociatedPartsTable.getItems().add(selectedPart);
     }
 
+    public void removeAssociatedPartButton() {
+        Part selectedPart = addPartsAssociatedPartsTable.getSelectionModel().getSelectedItem();
+
+        if (selectedPart == null) {
+            return;
+        }
+
+        addPartsAssociatedPartsTable.getItems().remove(selectedPart);
+        addProductPartsTable.getItems().add(selectedPart);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addProductPartsTable.setItems(Inventory.getAllParts());

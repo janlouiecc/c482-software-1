@@ -86,6 +86,17 @@ public class ModifyProductController implements Initializable {
         modifyPartsAssociatedTable.getItems().add(selectedPart);
     }
 
+    public void removeAssociatedPartButton() {
+        Part selectedPart = modifyPartsAssociatedTable.getSelectionModel().getSelectedItem();
+
+        if (selectedPart == null) {
+            return;
+        }
+
+        modifyPartsAssociatedTable.getItems().remove(selectedPart);
+        modifyProductPartsTable.getItems().add(selectedPart);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         modifyProductPartsTable.setItems(Inventory.getAllParts());

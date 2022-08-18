@@ -54,7 +54,7 @@
             </TableView>
         </ScrollPane>
         <Button layoutX="868.0" layoutY="255.0" mnemonicParsing="false" onAction="#addAssociatedPartButton" text="Add" />
-        <Button layoutX="780.0" layoutY="483.0" mnemonicParsing="false" text="Remove Associated Part" />
+        <Button layoutX="780.0" layoutY="483.0" mnemonicParsing="false" onAction="#removeAssociatedPartButton" text="Remove Associated Part" />
         <Button layoutX="780.0" layoutY="521.0" mnemonicParsing="false" onAction="#save" text="Save" />
         <Button layoutX="861.0" layoutY="521.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
     </Pane>
