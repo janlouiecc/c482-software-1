@@ -36,14 +36,36 @@ public class AddPartController {
     public void save(ActionEvent event) throws IOException {
         if (partTypeLabel.getText().equals("Machine ID")) {
             try {
-                InHouse part = new InHouse(
-                        partNameTextField.getText(),
-                        Double.parseDouble(partPriceTextField.getText()),
-                        Integer.parseInt(partInventoryTextField.getText()),
-                        Integer.parseInt(partMinTextField.getText()),
-                        Integer.parseInt(partMaxTextField.getText()),
-                        Integer.parseInt(partTypeTextField.getText()));
-                Inventory.addPart(part);
+                if (Integer.parseInt(partMinTextField.getText()) > Integer.parseInt(partMaxTextField.getText())) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("Cannot add part.");
+                    alert.setContentText("Please ensure that the minimum value is less than the maximum");
+                    alert.showAndWait();
+                    partMinTextField.clear();
+                    partMaxTextField.clear();
+                    return;
+                } else if (!(Integer.parseInt(partMinTextField.getText()) <  Integer.parseInt(partInventoryTextField.getText())) ||
+                        !(Integer.parseInt(partInventoryTextField.getText()) < Integer.parseInt(partMaxTextField.getText()))) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("Cannot add part.");
+                    alert.setContentText("Please ensure that the inventory amount is sufficient.");
+                    alert.showAndWait();
+                    partInventoryTextField.clear();
+                    partMinTextField.clear();
+                    partMaxTextField.clear();
+                    return;
+                } else {
+                    InHouse part = new InHouse(
+                            partNameTextField.getText(),
+                            Double.parseDouble(partPriceTextField.getText()),
+                            Integer.parseInt(partInventoryTextField.getText()),
+                            Integer.parseInt(partMinTextField.getText()),
+                            Integer.parseInt(partMaxTextField.getText()),
+                            Integer.parseInt(partTypeTextField.getText()));
+                    Inventory.addPart(part);
+                }
             } catch (NumberFormatException ignored) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("ERROR");
@@ -60,14 +82,36 @@ public class AddPartController {
             }
         } else if (partTypeLabel.getText().equals("Company Name")) {
             try {
-                Outsourced part = new Outsourced(
-                        partNameTextField.getText(),
-                        Double.parseDouble(partPriceTextField.getText()),
-                        Integer.parseInt(partInventoryTextField.getText()),
-                        Integer.parseInt(partMinTextField.getText()),
-                        Integer.parseInt(partMaxTextField.getText()),
-                        partTypeTextField.getText());
-                Inventory.addPart(part);
+                if (Integer.parseInt(partMinTextField.getText()) > Integer.parseInt(partMaxTextField.getText())) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("Cannot add part.");
+                    alert.setContentText("Please ensure that the minimum value is less than the maximum");
+                    alert.showAndWait();
+                    partMinTextField.clear();
+                    partMaxTextField.clear();
+                    return;
+                } else if (!(Integer.parseInt(partMinTextField.getText()) <  Integer.parseInt(partInventoryTextField.getText())) ||
+                        !(Integer.parseInt(partInventoryTextField.getText()) < Integer.parseInt(partMaxTextField.getText()))) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("Cannot add part.");
+                    alert.setContentText("Please ensure that the inventory amount is sufficient.");
+                    alert.showAndWait();
+                    partInventoryTextField.clear();
+                    partMinTextField.clear();
+                    partMaxTextField.clear();
+                    return;
+                } else {
+                    Outsourced part = new Outsourced(
+                            partNameTextField.getText(),
+                            Double.parseDouble(partPriceTextField.getText()),
+                            Integer.parseInt(partInventoryTextField.getText()),
+                            Integer.parseInt(partMinTextField.getText()),
+                            Integer.parseInt(partMaxTextField.getText()),
+                            partTypeTextField.getText());
+                    Inventory.addPart(part);
+                }
             } catch (NumberFormatException ignored) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("ERROR");
