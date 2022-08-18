@@ -155,6 +155,35 @@ public class MainController implements Initializable {
         stage.show();
     }
 
+    public void deleteProduct() {
+        Product selectedProduct = mainProductsTable.getSelectionModel().getSelectedItem();
+
+        if (selectedProduct == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("No item selected.");
+            alert.setContentText("Please select an item to delete.");
+            alert.showAndWait();
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete?");
+        alert.setHeaderText("Deleting " + selectedProduct.getProductName());
+        alert.setContentText("Are you sure you want to delete this selection?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            Inventory.getAllProducts().remove(selectedProduct);
+        }
+
+        if (Inventory.deleteProduct(selectedProduct)) {
+            Alert confirmed = new Alert(Alert.AlertType.INFORMATION);
+            confirmed.setTitle("Deleted");
+            confirmed.setHeaderText("This product has been deleted.");
+            confirmed.showAndWait();
+        }
+    }
+
     public void getProductSearchResults() {
         String search = productSearchField.getText();
         ObservableList<Product> products = Inventory.lookupProduct(search);
@@ -171,7 +200,7 @@ public class MainController implements Initializable {
 
         mainProductsTable.setItems(products);
     }
-    
+
     public void exit() {
         Platform.exit();
         System.exit(0);

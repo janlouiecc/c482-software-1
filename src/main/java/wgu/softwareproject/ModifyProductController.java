@@ -167,5 +167,14 @@ public class ModifyProductController implements Initializable {
         for (Part part : associatedParts) {
             modifyPartsAssociatedPartsTable.getItems().add(part);
         }
+
+        modifyProductPartIdColumn.setSortType(TableColumn.SortType.ASCENDING);
+        modifyProductPartsTable.getSortOrder().add(modifyProductPartIdColumn);
+
+        modifyPartsAssociatedPartsIdColumn.setSortType(TableColumn.SortType.ASCENDING);
+        modifyPartsAssociatedPartsTable.getSortOrder().add(modifyPartsAssociatedPartsIdColumn);
+
+        modifyProductPartsTable.sort();
+        modifyPartsAssociatedPartsTable.sort();
     }
 }

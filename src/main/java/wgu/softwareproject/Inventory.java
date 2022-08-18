@@ -70,7 +70,7 @@ public class Inventory {
         return !allParts.contains(selectedPart);
     }
 
-//    public static boolean deleteProduct(Part selectedProduct) { }
+    public static boolean deleteProduct(Product selectedProduct) { return !allProducts.contains(selectedProduct);}
 
     public static ObservableList<Part> getAllParts() {
         return allParts;

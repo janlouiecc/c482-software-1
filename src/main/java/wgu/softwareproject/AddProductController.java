@@ -151,5 +151,14 @@ public class AddProductController implements Initializable {
         addPartsAssociatedPartsNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
         addPartsAssociatedPartsInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
         addPartsAssociatedPartsPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
+
+        addProductPartIdColumn.setSortType(TableColumn.SortType.ASCENDING);
+        addProductPartsTable.getSortOrder().add(addProductPartIdColumn);
+
+        addPartsAssociatedPartsIdColumn.setSortType(TableColumn.SortType.ASCENDING);
+        addPartsAssociatedPartsTable.getSortOrder().add(addPartsAssociatedPartsIdColumn);
+
+        addProductPartsTable.sort();
+        addPartsAssociatedPartsTable.sort();
     }
 }

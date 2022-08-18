@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.softwareproject.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1040.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="wgu.softwareproject.MainController">
    <Label layoutX="65.0" layoutY="57.0" text="Inventory Management System">
       <font>
          <Font name="Arial Bold" size="18.0" />
@@ -56,7 +56,7 @@
       <TextField fx:id="productSearchField" layoutX="258.0" layoutY="16.0" onAction="#getProductSearchResults" prefHeight="25.0" prefWidth="176.0" promptText="Search by Product ID or Name" />
       <Button layoutX="233.0" layoutY="236.0" mnemonicParsing="false" onAction="#addProduct" text="Add" />
       <Button layoutX="285.0" layoutY="236.0" mnemonicParsing="false" onAction="#modifyProduct" text="Modify" />
-      <Button layoutX="359.0" layoutY="236.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="359.0" layoutY="236.0" mnemonicParsing="false" onAction="#deleteProduct" text="Delete" />
    </Pane>
    <Button layoutX="948.0" layoutY="393.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
 </AnchorPane>
