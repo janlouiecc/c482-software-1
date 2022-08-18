@@ -56,9 +56,10 @@ public class AddProductController implements Initializable {
     private TextField productMinTextField;
 
     public void save(ActionEvent event) throws IOException {
+        Product product;
 
         try {
-            Product product = new Product(
+            product = new Product(
                     productNameTextField.getText(),
                     Double.parseDouble(productPriceTextField.getText()),
                     Integer.parseInt(productInventoryTextField.getText()),
@@ -78,6 +79,12 @@ public class AddProductController implements Initializable {
             productMinTextField.clear();
             productMaxTextField.clear();
             return;
+        }
+
+        if (addPartsAssociatedPartsTable.getItems().size() > 0) {
+            for (Part part : addPartsAssociatedPartsTable.getItems()) {
+                product.addAssociatedPart(part);
+            }
         }
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));

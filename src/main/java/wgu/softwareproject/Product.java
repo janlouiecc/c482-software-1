@@ -12,6 +12,7 @@ public class Product {
     private int productStock;
     private int productMin;
     private int productMax;
+    private int associatedPartsCount;
     private static int productIdGenerator = 2;
 
     public Product(String productName, double productPrice, int productStock, int productMin, int productMax) {
@@ -73,7 +74,8 @@ public class Product {
     }
 
     public void addAssociatedPart(Part part) {
-
+        associatedParts.add(part);
+        associatedPartsCount++;
     }
 
     public void deleteAssociatedPart(Part selectedAssociatedPart) {

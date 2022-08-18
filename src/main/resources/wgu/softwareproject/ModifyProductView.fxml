@@ -44,7 +44,7 @@
             </TableView>
         </ScrollPane>
         <ScrollPane layoutX="544.0" layoutY="288.0" prefHeight="180.0" prefWidth="389.0">
-            <TableView fx:id="modifyPartsAssociatedTable" prefHeight="180.0" prefWidth="392.0">
+            <TableView fx:id="modifyPartsAssociatedPartsTable" prefHeight="180.0" prefWidth="392.0">
                 <columns>
                     <TableColumn fx:id="modifyPartsAssociatedPartsIdColumn" prefWidth="75.0" text="Part ID" />
                     <TableColumn fx:id="modifyPartsAssociatedPartsNameColumn" prefWidth="75.0" text="Part Name" />

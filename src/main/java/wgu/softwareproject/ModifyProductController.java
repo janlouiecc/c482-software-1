@@ -26,7 +26,7 @@ public class ModifyProductController implements Initializable {
     public TableColumn<Part, Integer> modifyPartsAssociatedPartsInventoryColumn;
     public TableColumn<Part, Double> modifyPartsAssociatedPartsPriceColumn;
     @FXML
-    private TableView<Part> modifyPartsAssociatedTable;
+    private TableView<Part> modifyPartsAssociatedPartsTable;
     @FXML
     private TextField partSearchField;
     @FXML
@@ -83,17 +83,17 @@ public class ModifyProductController implements Initializable {
         }
 
         modifyProductPartsTable.getItems().remove(selectedPart);
-        modifyPartsAssociatedTable.getItems().add(selectedPart);
+        modifyPartsAssociatedPartsTable.getItems().add(selectedPart);
     }
 
     public void removeAssociatedPartButton() {
-        Part selectedPart = modifyPartsAssociatedTable.getSelectionModel().getSelectedItem();
+        Part selectedPart = modifyPartsAssociatedPartsTable.getSelectionModel().getSelectedItem();
 
         if (selectedPart == null) {
             return;
         }
 
-        modifyPartsAssociatedTable.getItems().remove(selectedPart);
+        modifyPartsAssociatedPartsTable.getItems().remove(selectedPart);
         modifyProductPartsTable.getItems().add(selectedPart);
     }
 
