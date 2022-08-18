@@ -40,16 +40,38 @@ public class ModifyPartController implements Initializable {
 
     public void save(ActionEvent event) throws IOException {
         try {
-            partToModify.setPartName(partNameTextField.getText());
-            partToModify.setPartPrice(Double.parseDouble(partPriceTextField.getText()));
-            partToModify.setPartStock(Integer.parseInt(partInventoryTextField.getText()));
-            partToModify.setPartMin(Integer.parseInt(partMinTextField.getText()));
-            partToModify.setPartMax(Integer.parseInt(partMaxTextField.getText()));
-
-            if (partToModify instanceof Outsourced) {
-                ((Outsourced) partToModify).setCompanyName(partTypeTextField.getText());
+            if (Integer.parseInt(partMinTextField.getText()) > Integer.parseInt(partMaxTextField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("Cannot add part.");
+                alert.setContentText("Please ensure that the minimum value is less than the maximum");
+                alert.showAndWait();
+                partMinTextField.setText(String.valueOf(partToModify.getPartMin()));
+                partMaxTextField.setText(String.valueOf(partToModify.getPartMax()));
+                return;
+            } else if (!(Integer.parseInt(partMinTextField.getText()) <  Integer.parseInt(partInventoryTextField.getText())) ||
+                    !(Integer.parseInt(partInventoryTextField.getText()) < Integer.parseInt(partMaxTextField.getText()))) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("Cannot add part.");
+                alert.setContentText("Please ensure that the inventory amount is sufficient.");
+                alert.showAndWait();
+                partInventoryTextField.setText(String.valueOf(partToModify.getPartStock()));
+                partMinTextField.setText(String.valueOf(partToModify.getPartMin()));
+                partMaxTextField.setText(String.valueOf(partToModify.getPartMax()));
+                return;
             } else {
-                ((InHouse) partToModify).setMachineId(Integer.parseInt(partTypeTextField.getText()));
+                partToModify.setPartName(partNameTextField.getText());
+                partToModify.setPartPrice(Double.parseDouble(partPriceTextField.getText()));
+                partToModify.setPartStock(Integer.parseInt(partInventoryTextField.getText()));
+                partToModify.setPartMin(Integer.parseInt(partMinTextField.getText()));
+                partToModify.setPartMax(Integer.parseInt(partMaxTextField.getText()));
+
+                if (partToModify instanceof Outsourced) {
+                    ((Outsourced) partToModify).setCompanyName(partTypeTextField.getText());
+                } else {
+                    ((InHouse) partToModify).setMachineId(Integer.parseInt(partTypeTextField.getText()));
+                }
             }
         } catch (NumberFormatException ignore) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
