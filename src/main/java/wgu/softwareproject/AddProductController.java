@@ -81,10 +81,8 @@ public class AddProductController implements Initializable {
             return;
         }
 
-        if (addPartsAssociatedPartsTable.getItems().size() > 0) {
-            for (Part part : addPartsAssociatedPartsTable.getItems()) {
-                product.addAssociatedPart(part);
-            }
+        for (Part part : addPartsAssociatedPartsTable.getItems()) {
+            product.addAssociatedPart(part);
         }
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
@@ -128,7 +126,6 @@ public class AddProductController implements Initializable {
             return;
         }
 
-        addProductPartsTable.getItems().remove(selectedPart);
         addPartsAssociatedPartsTable.getItems().add(selectedPart);
     }
 
@@ -140,7 +137,6 @@ public class AddProductController implements Initializable {
         }
 
         addPartsAssociatedPartsTable.getItems().remove(selectedPart);
-        addProductPartsTable.getItems().add(selectedPart);
     }
 
     @Override

@@ -197,5 +197,14 @@ public class MainController implements Initializable {
         mainProductNameColumn.setCellValueFactory(new PropertyValueFactory<>("productName"));
         mainProductInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("productStock"));
         mainProductPriceColumn.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
+
+        mainPartIdColumn.setSortType(TableColumn.SortType.ASCENDING);
+        mainPartsTable.getSortOrder().add(mainPartIdColumn);
+
+        mainProductIdColumn.setSortType(TableColumn.SortType.ASCENDING);
+        mainProductsTable.getSortOrder().add(mainProductIdColumn);
+
+        mainPartsTable.sort();
+        mainProductsTable.sort();
     }
 }

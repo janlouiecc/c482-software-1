@@ -54,6 +54,7 @@ public class ModifyProductController implements Initializable {
     private Product productToModify;
 
     public void save(ActionEvent event) throws IOException {
+
         try {
             productToModify.setProductName(productNameTextField.getText());
             productToModify.setProductPrice(Double.parseDouble(productPriceTextField.getText()));
@@ -74,10 +75,9 @@ public class ModifyProductController implements Initializable {
             return;
         }
 
-        if (modifyPartsAssociatedPartsTable.getItems().size() > 0) {
-            for (Part part : modifyPartsAssociatedPartsTable.getItems()) {
-                productToModify.addAssociatedPart(part);
-            }
+        productToModify.getAllAssociatedParts().clear();
+        for (Part part : modifyPartsAssociatedPartsTable.getItems()) {
+            productToModify.addAssociatedPart(part);
         }
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
@@ -121,7 +121,6 @@ public class ModifyProductController implements Initializable {
             return;
         }
 
-        modifyProductPartsTable.getItems().remove(selectedPart);
         modifyPartsAssociatedPartsTable.getItems().add(selectedPart);
     }
 
@@ -133,8 +132,6 @@ public class ModifyProductController implements Initializable {
         }
 
         modifyPartsAssociatedPartsTable.getItems().remove(selectedPart);
-        modifyProductPartsTable.getItems().add(selectedPart);
-        productToModify.deleteAssociatedPart(selectedPart);
     }
 
     @Override
@@ -148,10 +145,18 @@ public class ModifyProductController implements Initializable {
         modifyProductPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
         modifyProductPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
 
+        modifyProductPartIdColumn.setSortType(TableColumn.SortType.ASCENDING);
+        modifyProductPartsTable.getSortOrder().add(modifyProductPartIdColumn);
+        modifyProductPartsTable.sort();
+
         modifyPartsAssociatedPartsIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
         modifyPartsAssociatedPartsNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
         modifyPartsAssociatedPartsInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
         modifyPartsAssociatedPartsPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
+
+        modifyPartsAssociatedPartsIdColumn.setSortType(TableColumn.SortType.ASCENDING);
+        modifyPartsAssociatedPartsTable.getSortOrder().add(modifyPartsAssociatedPartsIdColumn);
+        modifyPartsAssociatedPartsTable.sort();
 
         productNameTextField.setText(productToModify.getProductName());
         productInventoryTextField.setText(String.valueOf(productToModify.getProductStock()));
@@ -160,7 +165,6 @@ public class ModifyProductController implements Initializable {
         productMaxTextField.setText(String.valueOf(productToModify.getProductMax()));
 
         for (Part part : associatedParts) {
-            modifyProductPartsTable.getItems().remove(part);
             modifyPartsAssociatedPartsTable.getItems().add(part);
         }
     }
