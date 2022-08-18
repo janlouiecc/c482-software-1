@@ -51,7 +51,7 @@ public class ModifyPartController implements Initializable {
             } else {
                 ((InHouse) partToModify).setMachineId(Integer.parseInt(partTypeTextField.getText()));
             }
-        } catch (NumberFormatException ignored) {
+        } catch (NumberFormatException ignore) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("ERROR");
             alert.setHeaderText("Cannot modify part.");

@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -53,6 +54,26 @@ public class ModifyProductController implements Initializable {
     private static Product productToModify = null;
 
     public void save(ActionEvent event) throws IOException {
+        try {
+            productToModify.setProductName(productNameTextField.getText());
+            productToModify.setProductPrice(Double.parseDouble(productPriceTextField.getText()));
+            productToModify.setProductStock(Integer.parseInt(productInventoryTextField.getText()));
+            productToModify.setProductMin(Integer.parseInt(productMinTextField.getText()));
+            productToModify.setProductMax(Integer.parseInt(productMaxTextField.getText()));
+        } catch (NumberFormatException ignore) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Cannot modify part.");
+            alert.setContentText("Please ensure that the information is correct.");
+            alert.showAndWait();
+            productNameTextField.setText(productToModify.getProductName());
+            productInventoryTextField.setText(String.valueOf(productToModify.getProductStock()));
+            productPriceTextField.setText(String.valueOf(productToModify.getProductPrice()));
+            productMinTextField.setText(String.valueOf(productToModify.getProductMin()));
+            productMaxTextField.setText(String.valueOf(productToModify.getProductMax()));
+            return;
+        }
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

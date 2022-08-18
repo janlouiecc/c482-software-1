@@ -22,6 +22,7 @@ public class Product {
         setProductStock(productStock);
         setProductMin(productMin);
         setProductMax(productMax);
+        setAssociatedPartsCount(0);
         productIdGenerator += 2;
     }
 
@@ -84,5 +85,13 @@ public class Product {
 
     public ObservableList<Part> getAllAssociatedParts() {
         return associatedParts;
+    }
+
+    public int getAssociatedPartsCount() {
+        return associatedPartsCount;
+    }
+
+    public void setAssociatedPartsCount(int associatedPartsCount) {
+        this.associatedPartsCount = associatedPartsCount;
     }
 }
