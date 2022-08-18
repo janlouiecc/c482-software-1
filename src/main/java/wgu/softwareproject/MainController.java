@@ -46,6 +46,8 @@ public class MainController implements Initializable {
     @FXML
     public TextField productSearchField;
 
+    public static Part partToModify = null;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         mainPartsTable.setItems(Inventory.getAllParts());
@@ -71,6 +73,20 @@ public class MainController implements Initializable {
     }
 
     public void modifyPart(ActionEvent event) throws IOException {
+        Part selectedPart = mainPartsTable.getSelectionModel().getSelectedItem();
+
+
+        if (selectedPart == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("No item selected.");
+            alert.setContentText("Please select an item to modify.");
+            alert.showAndWait();
+            return;
+        }
+        partToModify = selectedPart;
+        System.out.println(partToModify);
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ModifyPartView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -156,5 +172,9 @@ public class MainController implements Initializable {
     public void exit() {
         Platform.exit();
         System.exit(0);
+    }
+
+    public static Part getPartToModify() {
+        return partToModify;
     }
 }
