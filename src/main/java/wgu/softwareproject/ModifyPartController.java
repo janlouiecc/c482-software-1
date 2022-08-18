@@ -57,6 +57,12 @@ public class ModifyPartController implements Initializable {
             alert.setHeaderText("Cannot modify part.");
             alert.setContentText("Please ensure that the information is correct.");
             alert.showAndWait();
+            partNameTextField.setText(partToModify.getPartName());
+            partInventoryTextField.setText(String.valueOf(partToModify.getPartStock()));
+            partPriceTextField.setText(String.valueOf(partToModify.getPartPrice()));
+            partMinTextField.setText(String.valueOf(partToModify.getPartMin()));
+            partMaxTextField.setText(String.valueOf(partToModify.getPartMax()));
+            return;
         }
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
