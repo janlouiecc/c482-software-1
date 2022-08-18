@@ -8,16 +8,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ModifyProductController implements Initializable {
@@ -153,7 +151,14 @@ public class ModifyProductController implements Initializable {
             return;
         }
 
-        modifyPartsAssociatedPartsTable.getItems().remove(selectedPart);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Remove?");
+        alert.setHeaderText("Removing " + selectedPart.getPartName());
+        alert.setContentText("Are you sure you want to remove this part from the product?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            modifyPartsAssociatedPartsTable.getItems().remove(selectedPart);
+        }
     }
 
     @Override

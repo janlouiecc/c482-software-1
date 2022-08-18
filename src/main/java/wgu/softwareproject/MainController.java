@@ -173,7 +173,17 @@ public class MainController implements Initializable {
         alert.setContentText("Are you sure you want to delete this selection?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            Inventory.getAllProducts().remove(selectedProduct);
+            if (selectedProduct.getAllAssociatedParts().isEmpty()) {
+                Inventory.getAllProducts().remove(selectedProduct);
+            } else {
+                Alert alert1 = new Alert(Alert.AlertType.WARNING);
+                alert1.setTitle("Error");
+                alert1.setHeaderText("Product has parts associated. Unable to delete.");
+                alert1.setContentText("Please select a different item to delete or un-associate parts from product before deleting.");
+                alert1.showAndWait();
+                return;
+            }
+
         }
 
         if (Inventory.deleteProduct(selectedProduct)) {
