@@ -114,6 +114,13 @@ public class MainController implements Initializable {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             Inventory.getAllParts().remove(selectedPart);
         }
+
+        if (Inventory.deletePart(selectedPart)) {
+            Alert confirmed = new Alert(Alert.AlertType.INFORMATION);
+            confirmed.setTitle("Deleted");
+            confirmed.setHeaderText("This part has been deleted.");
+            confirmed.showAndWait();
+        }
     }
 
     public void getPartSearchResults() {

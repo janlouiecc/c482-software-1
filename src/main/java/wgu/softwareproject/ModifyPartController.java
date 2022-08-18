@@ -7,10 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -39,7 +36,29 @@ public class ModifyPartController implements Initializable {
     @FXML
     private RadioButton inHousePart, outsourcedPart;
 
+    private static Part partToModify = null;
+
     public void save(ActionEvent event) throws IOException {
+        try {
+            partToModify.setPartName(partNameTextField.getText());
+            partToModify.setPartPrice(Double.parseDouble(partPriceTextField.getText()));
+            partToModify.setPartStock(Integer.parseInt(partInventoryTextField.getText()));
+            partToModify.setPartMin(Integer.parseInt(partMinTextField.getText()));
+            partToModify.setPartMax(Integer.parseInt(partMaxTextField.getText()));
+
+            if (partToModify instanceof Outsourced) {
+                ((Outsourced) partToModify).setCompanyName(partTypeTextField.getText());
+            } else {
+                ((InHouse) partToModify).setMachineId(Integer.parseInt(partTypeTextField.getText()));
+            }
+        } catch (NumberFormatException ignored) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Cannot modify part.");
+            alert.setContentText("Please ensure that the information is correct.");
+            alert.showAndWait();
+        }
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -68,7 +87,7 @@ public class ModifyPartController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Part partToModify = MainController.getPartToModify();
+        partToModify = MainController.getPartToModify();
 
         if (partToModify instanceof Outsourced) {
             partType.selectToggle(outsourcedPart);
