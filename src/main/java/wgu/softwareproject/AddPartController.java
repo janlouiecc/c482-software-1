@@ -17,17 +17,17 @@ public class AddPartController {
     @FXML
     public ToggleGroup partType;
     @FXML
-    public TextField partNameTextField;
+    private TextField partNameTextField;
     @FXML
-    public TextField partInventoryTextField;
+    private TextField partInventoryTextField;
     @FXML
-    public TextField partPriceTextField;
+    private TextField partPriceTextField;
     @FXML
-    public TextField partMaxTextField;
+    private TextField partMaxTextField;
     @FXML
-    public TextField partMinTextField;
+    private TextField partMinTextField;
     @FXML
-    public TextField partTypeTextField;
+    private TextField partTypeTextField;
     @FXML
     private Label partTypeLabel;
     @FXML

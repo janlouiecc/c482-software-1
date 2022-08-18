@@ -31,10 +31,10 @@ public class Main extends Application {
         Outsourced keyboard = new Outsourced("Keyboard", 15.00, 50, 1, 150, "Walmart");
         Inventory.addPart(keyboard);
 
-        InHouse processor = new InHouse("Processor", 1000.00, 100, 1, 200, 1000);
+        InHouse processor = new InHouse("Processor", 1000.00, 100, 1, 200, 1001);
         Inventory.addPart(processor);
 
-        InHouse tower = new InHouse("Tower Case", 500.00, 100, 1, 200, 1000);
+        InHouse tower = new InHouse("Tower Case", 500.00, 100, 1, 200, 1002);
         Inventory.addPart(tower);
 
         Product gamingLaptop = new Product("Gaming Laptop", 2000.00, 80, 1, 200);

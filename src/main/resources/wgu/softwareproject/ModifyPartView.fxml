@@ -20,16 +20,16 @@
         </toggleGroup>
     </RadioButton>
     <RadioButton fx:id="outsourcedPart" layoutX="357.0" layoutY="82.0" mnemonicParsing="false" onAction="#getTypeOfPart" text="Outsourced" toggleGroup="$partType" />
-    <TextField layoutX="185.0" layoutY="185.0" />
-    <TextField layoutX="185.0" layoutY="249.0" />
-    <TextField layoutX="185.0" layoutY="317.0" />
-    <TextField layoutX="185.0" layoutY="373.0" />
-    <TextField layoutX="185.0" layoutY="433.0" />
+    <TextField fx:id="partNameTextField" layoutX="185.0" layoutY="185.0" />
+    <TextField fx:id="partInventoryTextField" layoutX="185.0" layoutY="249.0" />
+    <TextField fx:id="partPriceTextField" layoutX="185.0" layoutY="317.0" />
+    <TextField fx:id="partMaxTextField" layoutX="185.0" layoutY="373.0" />
+    <TextField fx:id="partTypeTextField" layoutX="185.0" layoutY="433.0" />
     <TextField disable="true" layoutX="185.0" layoutY="132.0" promptText="Auto Gen - Disabled">
       <font>
          <Font name="System Italic" size="12.0" />
       </font></TextField>
-    <TextField layoutX="408.0" layoutY="373.0" />
+    <TextField fx:id="partMinTextField" layoutX="408.0" layoutY="373.0" />
     <Label layoutX="83.0" layoutY="189.0" text="Name" />
     <Label layoutX="82.0" layoutY="321.0" text="Price/Cost" />
     <Label layoutX="84.0" layoutY="377.0" text="Max" />

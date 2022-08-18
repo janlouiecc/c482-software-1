@@ -85,7 +85,6 @@ public class MainController implements Initializable {
             return;
         }
         partToModify = selectedPart;
-        System.out.println(partToModify);
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ModifyPartView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
