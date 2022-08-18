@@ -23,9 +23,19 @@ import java.util.ResourceBundle;
 public class AddProductController implements Initializable {
 
     @FXML
+    public TableColumn<Part, Integer> addPartsAssociatedPartsIdColumn;
+    @FXML
+    public TableColumn<Part, String> addPartsAssociatedPartsNameColumn;
+    @FXML
+    public TableColumn<Part, Integer> addPartsAssociatedPartsInventoryColumn;
+    @FXML
+    public TableColumn<Part, Double> addPartsAssociatedPartsPriceColumn;
+    @FXML
     private TextField partSearchField;
     @FXML
     private TableView<Part> addProductPartsTable;
+    @FXML
+    private TableView<Part> addPartsAssociatedPartsTable;
     @FXML
     private TableColumn<Part, Integer> addProductPartIdColumn;
     @FXML
@@ -104,6 +114,17 @@ public class AddProductController implements Initializable {
         addProductPartsTable.setItems(parts);
     }
 
+    public void addAssociatedPartButton() {
+        Part selectedPart = addProductPartsTable.getSelectionModel().getSelectedItem();
+
+        if (selectedPart == null) {
+            return;
+        }
+
+        addProductPartsTable.getItems().remove(selectedPart);
+        addPartsAssociatedPartsTable.getItems().add(selectedPart);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addProductPartsTable.setItems(Inventory.getAllParts());
@@ -111,5 +132,10 @@ public class AddProductController implements Initializable {
         addProductPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
         addProductPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
         addProductPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
+
+        addPartsAssociatedPartsIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
+        addPartsAssociatedPartsNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
+        addPartsAssociatedPartsInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
+        addPartsAssociatedPartsPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
     }
 }

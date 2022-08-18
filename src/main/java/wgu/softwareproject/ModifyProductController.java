@@ -21,18 +21,24 @@ import java.util.ResourceBundle;
 
 public class ModifyProductController implements Initializable {
 
+    public TableColumn<Part, Integer> modifyPartsAssociatedPartsIdColumn;
+    public TableColumn<Part, String> modifyPartsAssociatedPartsNameColumn;
+    public TableColumn<Part, Integer> modifyPartsAssociatedPartsInventoryColumn;
+    public TableColumn<Part, Double> modifyPartsAssociatedPartsPriceColumn;
+    @FXML
+    private TableView<Part> modifyPartsAssociatedTable;
     @FXML
     private TextField partSearchField;
     @FXML
-    private TableView<Part> addProductPartsTable;
+    private TableView<Part> modifyProductPartsTable;
     @FXML
-    private TableColumn<Part, Integer> addProductPartIdColumn;
+    private TableColumn<Part, Integer> modifyProductPartIdColumn;
     @FXML
-    private TableColumn<Part, String> addProductPartNameColumn;
+    private TableColumn<Part, String> modifyProductPartNameColumn;
     @FXML
-    private TableColumn<Part, Double> addProductPartPriceColumn;
+    private TableColumn<Part, Double> modifyProductPartPriceColumn;
     @FXML
-    private TableColumn<Part, Integer> addProductPartInventoryColumn;
+    private TableColumn<Part, Integer> modifyProductPartInventoryColumn;
 
     public void save(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
@@ -66,15 +72,31 @@ public class ModifyProductController implements Initializable {
             } catch (NumberFormatException ignored) {}
         }
 
-        addProductPartsTable.setItems(parts);
+        modifyProductPartsTable.setItems(parts);
+    }
+
+    public void addAssociatedPartButton() {
+        Part selectedPart = modifyProductPartsTable.getSelectionModel().getSelectedItem();
+
+        if (selectedPart == null) {
+            return;
+        }
+
+        modifyProductPartsTable.getItems().remove(selectedPart);
+        modifyPartsAssociatedTable.getItems().add(selectedPart);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        addProductPartsTable.setItems(Inventory.getAllParts());
-        addProductPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
-        addProductPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
-        addProductPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
-        addProductPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
+        modifyProductPartsTable.setItems(Inventory.getAllParts());
+        modifyProductPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
+        modifyProductPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
+        modifyProductPartInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
+        modifyProductPartPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
+
+        modifyPartsAssociatedPartsIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
+        modifyPartsAssociatedPartsNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
+        modifyPartsAssociatedPartsInventoryColumn.setCellValueFactory(new PropertyValueFactory<>("partStock"));
+        modifyPartsAssociatedPartsPriceColumn.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
     }
 }

@@ -60,7 +60,6 @@ public class MainController implements Initializable {
     public void modifyPart(ActionEvent event) throws IOException {
         Part selectedPart = mainPartsTable.getSelectionModel().getSelectedItem();
 
-
         if (selectedPart == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
