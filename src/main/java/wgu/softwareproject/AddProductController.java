@@ -1,5 +1,6 @@
 package wgu.softwareproject;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,8 @@ import java.util.ResourceBundle;
 
 public class AddProductController implements Initializable {
 
+    @FXML
+    private TextField partSearchField;
     @FXML
     private TableView<Part> addProductPartsTable;
     @FXML
@@ -82,6 +85,23 @@ public class AddProductController implements Initializable {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+
+    public void getPartSearchResults() {
+        String search = partSearchField.getText();
+        ObservableList<Part> parts = Inventory.lookupPart(search);
+
+        if (parts.size() == 0) {
+            try {
+                int partId = Integer.parseInt(search);
+                Part part = Inventory.lookupPart(partId);
+                if (part != null) {
+                    parts.add(part);
+                }
+            } catch (NumberFormatException ignored) {}
+        }
+
+        addProductPartsTable.setItems(parts);
     }
 
     @Override
