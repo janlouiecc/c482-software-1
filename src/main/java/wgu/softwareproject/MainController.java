@@ -2,6 +2,7 @@ package wgu.softwareproject;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,9 +17,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class MainController {
+public class MainController implements Initializable {
 
     @FXML
     public TableView<Part> mainPartsTable;
@@ -45,7 +48,8 @@ public class MainController {
     @FXML
     public TextField productSearchField;
 
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         mainPartsTable.setItems(Inventory.getAllParts());
         mainPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("partId"));
         mainPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("partName"));
@@ -80,7 +84,7 @@ public class MainController {
 
         if (selectedPart == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Error");
+            alert.setTitle("ERROR");
             alert.setHeaderText("No item selected.");
             alert.setContentText("Please select an item to delete.");
             alert.showAndWait();
