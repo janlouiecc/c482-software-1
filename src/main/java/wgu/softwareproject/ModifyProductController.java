@@ -68,7 +68,8 @@ public class ModifyProductController implements Initializable {
     private Product productToModify;
 
     /**
-     * Modifies selected product.
+     * RUNTIME ERROR. Initially, a runtime error occurred due to input data for fields with an integer or double type and crashing as it was unable to parse the text.
+     * Adding try and catch blocks to catch NumberFormatExceptions helped this run more smoothly.
      * This method modifies the inputted data of a product in the inventory and exits back to the main form.
      * @param event The action event when the button this method is associated with is clicked.
      * @throws IOException Added to the method signature to handle java.io.IOException

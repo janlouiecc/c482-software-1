@@ -57,7 +57,8 @@ public class AddProductController implements Initializable {
     private TextField productMinTextField;
 
     /**
-     * Adds a new product
+     * RUNTIME ERROR. Initially, a runtime error occurred due to input data for fields with an integer or double type and crashing as it was unable to parse the text.
+     * Adding try and catch blocks to catch NumberFormatExceptions helped this run more smoothly.
      * This method saves the inputted data and adds a product to the inventory.
      * @param event The action event when the button this method is associated with is clicked.
      * @throws IOException Added to the method signature to handle java.io.IOException
