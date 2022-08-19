@@ -179,7 +179,7 @@ public class MainController implements Initializable {
                 Alert alert1 = new Alert(Alert.AlertType.WARNING);
                 alert1.setTitle("Error");
                 alert1.setHeaderText("Product has parts associated. Unable to delete.");
-                alert1.setContentText("Please select a different item to delete or un-associate parts from product before deleting.");
+                alert1.setContentText("Please select a different item to delete or disassociate parts from product before deleting.");
                 alert1.showAndWait();
                 return;
             }
