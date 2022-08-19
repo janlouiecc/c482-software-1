@@ -9,7 +9,7 @@ public class InHouse extends Part{
 
     /**
      * Instantiates a new in-house part.
-     * The constructor for the in-house part which calls the superclass's constructor and adds a machine ID.
+     * The constructor for the in-house part which calls the superclass part's constructor and adds a machine ID.
      * @param name      The part's name
      * @param price     The part's price
      * @param stock     The part's stock amount
