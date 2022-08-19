@@ -26,22 +26,14 @@ import java.util.ResourceBundle;
  */
 public class ModifyProductController implements Initializable {
 
-    /**
-     * The Parts ID column.
-     */
-    public TableColumn<Part, Integer> modifyPartsAssociatedPartsIdColumn;
-    /**
-     * The Parts name column.
-     */
-    public TableColumn<Part, String> modifyPartsAssociatedPartsNameColumn;
-    /**
-     * The Part's inventory amount column.
-     */
-    public TableColumn<Part, Integer> modifyPartsAssociatedPartsInventoryColumn;
-    /**
-     * The Part's price column. 
-     */
-    public TableColumn<Part, Double> modifyPartsAssociatedPartsPriceColumn;
+    @FXML
+    private TableColumn<Part, Integer> modifyPartsAssociatedPartsIdColumn;
+    @FXML
+    private TableColumn<Part, String> modifyPartsAssociatedPartsNameColumn;
+    @FXML
+    private TableColumn<Part, Integer> modifyPartsAssociatedPartsInventoryColumn;
+    @FXML
+    private TableColumn<Part, Double> modifyPartsAssociatedPartsPriceColumn;
     @FXML
     private TableView<Part> modifyPartsAssociatedPartsTable;
     @FXML
