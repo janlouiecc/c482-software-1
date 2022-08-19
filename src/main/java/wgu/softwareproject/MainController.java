@@ -19,6 +19,9 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * The Main controller class. 
+ */
 public class MainController implements Initializable {
 
     @FXML
@@ -49,6 +52,12 @@ public class MainController implements Initializable {
     private static Part partToModify = null;
     private static Product productToModify = null;
 
+    /**
+     * Opens the 'add part' form. 
+     * This method is from the event of pushing the add button in the part table to open the 'add part' form.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void addPart(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddPartView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -58,6 +67,12 @@ public class MainController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Opens the 'modify part' form. 
+     * This method is from the event of pushing the modify button in the part table to open the 'modify part' form.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void modifyPart(ActionEvent event) throws IOException {
         Part selectedPart = mainPartsTable.getSelectionModel().getSelectedItem();
 
@@ -79,6 +94,10 @@ public class MainController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Deletes a part. 
+     * This method deletes the highlighted part and ensures it is also deleted from inventory.
+     */
     public void deletePart() {
         Part selectedPart = mainPartsTable.getSelectionModel().getSelectedItem();
 
@@ -108,6 +127,9 @@ public class MainController implements Initializable {
         }
     }
 
+    /**
+     * Gets the search results in the parts table. 
+     */
     public void getPartSearchResults() {
         String search = partSearchField.getText();
         ObservableList<Part> parts = Inventory.lookupPart(search);
@@ -125,6 +147,12 @@ public class MainController implements Initializable {
         mainPartsTable.setItems(parts);
     }
 
+    /**
+     * Opens the 'add product' form. 
+     * This method is from the event of pushing the add button in the product table to open the 'add product' form.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void addProduct(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddProductView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -134,6 +162,12 @@ public class MainController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Opens the 'modify product' form. 
+     * This method is from the event of pushing the modify button in the product table to open the 'modify product' form.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void modifyProduct(ActionEvent event) throws IOException {
         Product selectedProduct = mainProductsTable.getSelectionModel().getSelectedItem();
 
@@ -155,6 +189,10 @@ public class MainController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Deletes a product. 
+     * This method deletes the highlighted product and ensures it is also deleted from inventory.
+     */
     public void deleteProduct() {
         Product selectedProduct = mainProductsTable.getSelectionModel().getSelectedItem();
 
@@ -194,6 +232,9 @@ public class MainController implements Initializable {
         }
     }
 
+    /**
+     * Gets the search results in the products table. 
+     */
     public void getProductSearchResults() {
         String search = productSearchField.getText();
         ObservableList<Product> products = Inventory.lookupProduct(search);
@@ -211,18 +252,38 @@ public class MainController implements Initializable {
         mainProductsTable.setItems(products);
     }
 
+    /**
+     * Exits the program. 
+     */
     public void exit() {
         Platform.exit();
         System.exit(0);
     }
 
+    /**
+     * Gets part to modify. 
+     * Gets the highlighted part to modify and passes it to the modify part controller for data manipulation. 
+     * @return the part to modify
+     */
     public static Part getPartToModify() {
         return partToModify;
     }
+
+    /**
+     * Gets product to modify. 
+     * Gets the highlighted product to modify and passes it to the modify product controller for data manipulation. 
+     * @return the product to modify
+     */
     public static Product getProductToModify() {
         return productToModify;
     }
 
+    /**
+     * Initializes what is shown in the main form.
+     * This method overrides the initialize method in the Initializable interface and links the table view data with the inventory data for presentation.
+     * @param url the URL
+     * @param resourceBundle the Resource Bundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         mainPartsTable.setItems(Inventory.getAllParts());
@@ -246,4 +307,5 @@ public class MainController implements Initializable {
         mainPartsTable.sort();
         mainProductsTable.sort();
     }
+
 }
