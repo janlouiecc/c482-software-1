@@ -221,7 +221,6 @@ public class MainController implements Initializable {
                 alert1.showAndWait();
                 return;
             }
-
         }
 
         if (Inventory.deleteProduct(selectedProduct)) {
@@ -256,8 +255,15 @@ public class MainController implements Initializable {
      * Exits the program. 
      */
     public void exit() {
-        Platform.exit();
-        System.exit(0);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Exit Program?");
+        alert.setHeaderText("You are about to exit the program.");
+        alert.setContentText("Are you sure you want to exit?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            Platform.exit();
+            System.exit(0);
+        }
     }
 
     /**
