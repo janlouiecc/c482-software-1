@@ -19,6 +19,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
+ * FUTURE ENHANCEMENT. An enhancement that would extend the functionality of this class would be to take into account total inventory and match the amount of parts to be used with the total amount of products in the inventory.
+ * This would allow companies to keep track of what parts are left even after being used in a product and would allow companies to know if there are enough parts for a product.
  * This is the Add Product controller class.
  */
 public class AddProductController implements Initializable {
