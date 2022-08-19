@@ -18,11 +18,8 @@ import java.util.Objects;
  */
 public class AddPartController {
 
-    /**
-     * The Part type.
-     */
     @FXML
-    public ToggleGroup partType;
+    private ToggleGroup partType;
     @FXML
     private TextField partNameTextField;
     @FXML

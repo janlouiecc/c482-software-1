@@ -25,7 +25,7 @@ public class ModifyPartController implements Initializable {
      * The Part type (in-house or outsourced).
      */
     @FXML
-    public ToggleGroup partType;
+    private ToggleGroup partType;
     @FXML
     private TextField partNameTextField;
     @FXML
