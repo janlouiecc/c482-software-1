@@ -166,6 +166,11 @@ public class AddProductController implements Initializable {
         Part selectedPart = addProductPartsTable.getSelectionModel().getSelectedItem();
 
         if (selectedPart == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("No item selected.");
+            alert.setContentText("Please select a part to add and associate to this product.");
+            alert.showAndWait();
             return;
         }
 
@@ -180,6 +185,11 @@ public class AddProductController implements Initializable {
         Part selectedPart = addPartsAssociatedPartsTable.getSelectionModel().getSelectedItem();
 
         if (selectedPart == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText("No item selected.");
+            alert.setContentText("Please select a part to remove.");
+            alert.showAndWait();
             return;
         }
 
