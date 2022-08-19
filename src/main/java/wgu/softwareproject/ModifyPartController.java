@@ -15,8 +15,15 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * This is the Modify Part Controller class.
+ * This class controls our Modify Part form and contains the methods for the functionality of modifying parts in the inventory.
+ */
 public class ModifyPartController implements Initializable {
 
+    /**
+     * The Part type (in-house or outsourced).
+     */
     @FXML
     public ToggleGroup partType;
     @FXML
@@ -38,6 +45,12 @@ public class ModifyPartController implements Initializable {
 
     private Part partToModify;
 
+    /**
+     * Modifies selected part.
+     * This method modifies the inputted data of a part in the inventory and exits back to the main form.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void save(ActionEvent event) throws IOException {
         try {
             if (Integer.parseInt(partMinTextField.getText()) > Integer.parseInt(partMaxTextField.getText())) {
@@ -95,6 +108,12 @@ public class ModifyPartController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Cancels modifying a part.
+     * This method cancels the option to modify a part in the inventory and exits back to the main form.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void cancel(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -104,6 +123,10 @@ public class ModifyPartController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Gets the type of part.
+     * This method obtains the information of which radio buttons are selected (In-House or Outsourced) to know what type of information needs to be associated with the new part.
+     */
     public void getTypeOfPart() {
         if (inHousePart.isSelected()) {
             partTypeLabel.setText("Machine ID");
@@ -112,6 +135,12 @@ public class ModifyPartController implements Initializable {
         }
     }
 
+    /**
+     * Initializes what is shown in the 'modify part' form.
+     * This method overrides the initialize method in the Initializable interface and links the table view data with the inventory data for presentation.
+     * @param url the URL
+     * @param resourceBundle the Resource Bundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

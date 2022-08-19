@@ -18,11 +18,27 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * This is the Modify Product Controller class.
+ * This class controls our Modify Product form and contains the methods for the functionality of modifying products in the inventory.
+ */
 public class ModifyProductController implements Initializable {
 
+    /**
+     * The Parts ID column.
+     */
     public TableColumn<Part, Integer> modifyPartsAssociatedPartsIdColumn;
+    /**
+     * The Parts name column.
+     */
     public TableColumn<Part, String> modifyPartsAssociatedPartsNameColumn;
+    /**
+     * The Part's inventory amount column.
+     */
     public TableColumn<Part, Integer> modifyPartsAssociatedPartsInventoryColumn;
+    /**
+     * The Part's price column. 
+     */
     public TableColumn<Part, Double> modifyPartsAssociatedPartsPriceColumn;
     @FXML
     private TableView<Part> modifyPartsAssociatedPartsTable;
@@ -51,6 +67,12 @@ public class ModifyProductController implements Initializable {
 
     private Product productToModify;
 
+    /**
+     * Modifies selected product.
+     * This method modifies the inputted data of a product in the inventory and exits back to the main form.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void save(ActionEvent event) throws IOException {
 
         try {
@@ -108,6 +130,12 @@ public class ModifyProductController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Cancels modifying a product.
+     * This method cancels the option to modify a product in the inventory and exits back to the main form.
+     * @param event The action event when the button this method is associated with is clicked.
+     * @throws IOException Added to the method signature to handle java.io.IOException
+     */
     public void cancel(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainView.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -117,6 +145,9 @@ public class ModifyProductController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Gets part search results.
+     */
     public void getPartSearchResults() {
         String search = partSearchField.getText();
         ObservableList<Part> parts = Inventory.lookupPart(search);
@@ -134,6 +165,10 @@ public class ModifyProductController implements Initializable {
         modifyProductPartsTable.setItems(parts);
     }
 
+    /**
+     * Add associated part button.
+     * This method adds an associated part to the product.
+     */
     public void addAssociatedPartButton() {
         Part selectedPart = modifyProductPartsTable.getSelectionModel().getSelectedItem();
 
@@ -144,6 +179,10 @@ public class ModifyProductController implements Initializable {
         modifyPartsAssociatedPartsTable.getItems().add(selectedPart);
     }
 
+    /**
+     * Remove associated part button.
+     * This method removes an associated part to the product.
+     */
     public void removeAssociatedPartButton() {
         Part selectedPart = modifyPartsAssociatedPartsTable.getSelectionModel().getSelectedItem();
 
@@ -161,6 +200,12 @@ public class ModifyProductController implements Initializable {
         }
     }
 
+    /**
+     * Initializes what is shown in the 'modify product' form.
+     * This method overrides the initialize method in the Initializable interface and links the table view data with the inventory data for presentation.
+     * @param url the URL
+     * @param resourceBundle the Resource Bundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productToModify = MainController.getProductToModify();

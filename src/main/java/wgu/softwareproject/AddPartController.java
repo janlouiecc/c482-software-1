@@ -18,6 +18,9 @@ import java.util.Objects;
  */
 public class AddPartController {
 
+    /**
+     * The Part type.
+     */
     @FXML
     public ToggleGroup partType;
     @FXML
@@ -39,7 +42,7 @@ public class AddPartController {
 
     /**
      * Adds a new part.
-     * This method saves the inputted data and adds a part to the inventory.
+     * This method saves the inputted data, adds a part to the inventory and exits back to the main form.
      * @param event The action event when the button this method is associated with is clicked.
      * @throws IOException Added to the method signature to handle java.io.IOException
      */
@@ -148,7 +151,7 @@ public class AddPartController {
 
     /**
      * Cancels adding a new part.
-     * This method cancels the option to add a new part to the inventory.
+     * This method cancels the option to add a new part to the inventory and exits back to the main form.
      * @param event The action event when the button this method is associated with is clicked.
      * @throws IOException Added to the method signature to handle java.io.IOException
      */
