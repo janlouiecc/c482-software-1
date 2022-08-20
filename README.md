@@ -1,1 +1,3 @@
 # C482 Software I
+
+An inventory management system that uses JavaFX for the user interface made with Intellij IDEA. The program keeps track of parts and products for a company. Parts can be associated with a certain product and is either made in-house or outsourced. This project demonstrates competency at designing software solutions with appropriate classes, objects, methods, and interfaces to achieve specific goals, implementing object-oriented design principles, developing applications for ensuring the application’s scalability, producing applications using Java programming language constructs and developing exception handling and user interfaces to meet project requirements.
