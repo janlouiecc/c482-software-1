@@ -1,4 +1,4 @@
-package wgu.softwareproject;
+package inv_mgmt_sys;
 
 /**
  * The Outsourced subclass to the superclass of Part.

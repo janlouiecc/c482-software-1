@@ -1,4 +1,4 @@
-package wgu.softwareproject;
+package inv_mgmt_sys;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

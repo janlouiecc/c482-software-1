@@ -1,4 +1,4 @@
-package wgu.softwareproject;
+package inv_mgmt_sys;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

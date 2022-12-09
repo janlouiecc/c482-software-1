@@ -1,4 +1,4 @@
-package wgu.softwareproject;
+package inv_mgmt_sys;
 
 /**
  * This is the Part abstract superclass that is extended when In-house or Outsourced parts are initialized.

@@ -1,4 +1,4 @@
-package wgu.softwareproject;
+package inv_mgmt_sys;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

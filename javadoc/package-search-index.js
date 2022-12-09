@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"wgu.softwareproject","l":"wgu.softwareproject"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"wgu.softwareproject","l":"inv_mgmt_sys"}];updateSearchResults();

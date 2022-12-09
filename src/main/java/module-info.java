@@ -3,6 +3,6 @@ module wgu.softwareproject {
     requires javafx.fxml;
 
 
-    opens wgu.softwareproject to javafx.fxml;
-    exports wgu.softwareproject;
+    opens inv_mgmt_sys to javafx.fxml;
+    exports inv_mgmt_sys;
 }
